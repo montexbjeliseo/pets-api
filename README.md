@@ -36,7 +36,7 @@ nformación y guía<h1>Proyecto de Aplicación web para adopción de mascotas</h
 <p><b>PARA</b> poder conocer las características de cada mascota.</p>
 <h3>7 - Sección Guía para adoptar</h3>
 <p><b>COMO</b> usuario del sitio web,</p>
-<p><b>QUIERO</b> tener una sección</p>
+<p><b>QUIERO</b> tener una sección de información y guía de usuario adoptante,</p>
 <p><b>PARA</b> poder conocer todos los requisitos que debo cumplir para adoptar una mascota.</p>
 <h2>Integrantes y roles</h2>
 <p>Sebastián Gómez - UI/UX</p>
