@@ -24,7 +24,21 @@ public class PetController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ResponsePetDTO> getAllPets(){
-        return petService.getAllPets();
+    public List<ResponsePetDTO> getAllPets(
+            @RequestParam(defaultValue = "0") int offset,
+            @RequestParam(defaultValue = "10") int limit,
+
+            @RequestParam(required = false) String species,
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String age,
+            @RequestParam(required = false) String size,
+            @RequestParam(required = false) String gender
+            ) {
+
+        if(species != null || city != null || age != null || size != null || gender != null) {
+            return petService.getAllPets(offset, limit, species, city, age, size, gender);
+        }
+
+        return petService.getAllPets(offset, limit);
     }
 }

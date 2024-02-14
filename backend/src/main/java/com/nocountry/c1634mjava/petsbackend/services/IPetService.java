@@ -8,5 +8,6 @@ import java.util.List;
 public interface IPetService {
     public ResponsePetDTO createPet(RequestCreatePetDTO requestCreatePetDTO);
 
-    public List<ResponsePetDTO> getAllPets();
+    public List<ResponsePetDTO> getAllPets(int offset, int limit);
+    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String age, String size, String gender);
 }

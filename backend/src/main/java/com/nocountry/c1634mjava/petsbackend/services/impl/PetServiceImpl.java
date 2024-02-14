@@ -8,6 +8,9 @@ import com.nocountry.c1634mjava.petsbackend.repositories.PetRepository;
 import com.nocountry.c1634mjava.petsbackend.services.IPetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +33,16 @@ public class PetServiceImpl implements IPetService {
     }
 
     @Override
-    public List<ResponsePetDTO> getAllPets(){
-        return petMapper.toResponsePetDTOList(petRepository.findAll());
+    public List<ResponsePetDTO> getAllPets(int offset, int limit) {
+        Pageable pageable = PageRequest.of(offset / limit, limit);
+        Page<Pet> pets = petRepository.findAll(pageable);
+        return petMapper.toResponsePetDTOList(pets.getContent());
+    }
+
+    @Override
+    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String age, String size, String gender) {
+        Pageable pageable = PageRequest.of(offset / limit, limit);
+        Page<Pet> pets = petRepository.filterPets(species, city, age, size, gender, pageable);
+        return petMapper.toResponsePetDTOList(pets.getContent());
     }
 }
