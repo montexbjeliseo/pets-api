@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/pets")
 @RequiredArgsConstructor
@@ -18,5 +20,11 @@ public class PetController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponsePetDTO createPet(@Valid @RequestBody RequestCreatePetDTO requestCreatePetDTO) {
         return petService.createPet(requestCreatePetDTO);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<ResponsePetDTO> getAllPets(){
+        return petService.getAllPets();
     }
 }
