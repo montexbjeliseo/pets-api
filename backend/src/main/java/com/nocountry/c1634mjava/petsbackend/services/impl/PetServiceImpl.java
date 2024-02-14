@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PetServiceImpl implements IPetService {
@@ -25,5 +27,10 @@ public class PetServiceImpl implements IPetService {
         Pet savedPet = petRepository.save(pet);
 
         return petMapper.toResponsePetDTO(savedPet);
+    }
+
+    @Override
+    public List<ResponsePetDTO> getAllPets(){
+        return petMapper.toResponsePetDTOList(petRepository.findAll());
     }
 }
