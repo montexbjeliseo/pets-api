@@ -1,5 +1,5 @@
 <h1>Proyecto de Aplicación web para adopción de mascotas</h1>
-<h2>nformación y guía</h2>
+<h2>Información y guía</h2>
 <h2>Objetivo</h2>
 <p>Encontrar un hogar adecuado a mascotas que se encuentran en situación de calle o necesiten ser relocalizadas.</p>
 <h3>Descripción del proyecto</h3>
