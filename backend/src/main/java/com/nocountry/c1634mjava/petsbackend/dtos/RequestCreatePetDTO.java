@@ -11,6 +11,9 @@ import lombok.*;
 public class RequestCreatePetDTO {
 
     @NotBlank(message = "Name is required")
+    private String name;
+
+    @NotBlank(message = "Name is required")
     private String city;
 
     @NotBlank(message = "Species is required")

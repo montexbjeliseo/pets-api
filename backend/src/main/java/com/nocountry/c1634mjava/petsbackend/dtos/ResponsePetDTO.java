@@ -7,6 +7,7 @@ import lombok.Data;
 public class ResponsePetDTO {
 
     private Long id;
+    private String name;
     private String city;
     private String species;
     private Long age;
