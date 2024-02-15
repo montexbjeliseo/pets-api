@@ -1,6 +1,7 @@
 package com.nocountry.c1634mjava.petsbackend.services;
 
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestCreatePetDTO;
+import com.nocountry.c1634mjava.petsbackend.dtos.RequestUpdatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.ResponsePetDTO;
 
 import java.util.List;
@@ -10,4 +11,6 @@ public interface IPetService {
 
     public List<ResponsePetDTO> getAllPets(int offset, int limit);
     public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String age, String size, String gender);
+
+    public ResponsePetDTO updatePet(Long id, RequestUpdatePetDTO requestUpdatePetDTO);
 }
