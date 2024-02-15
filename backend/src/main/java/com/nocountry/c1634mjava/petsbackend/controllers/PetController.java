@@ -1,6 +1,7 @@
 package com.nocountry.c1634mjava.petsbackend.controllers;
 
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestCreatePetDTO;
+import com.nocountry.c1634mjava.petsbackend.dtos.RequestUpdatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.ResponsePetDTO;
 import com.nocountry.c1634mjava.petsbackend.services.IPetService;
 import jakarta.validation.Valid;
@@ -29,5 +30,11 @@ public class PetController {
             @RequestParam(defaultValue = "10") int limit
             ) {
         return petService.getAllPets(offset, limit);
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponsePetDTO updatePet(@PathVariable Long id, @Valid @RequestBody RequestUpdatePetDTO requestUpdatePetDTO) {
+        return petService.updatePet(id, requestUpdatePetDTO);
     }
 }
