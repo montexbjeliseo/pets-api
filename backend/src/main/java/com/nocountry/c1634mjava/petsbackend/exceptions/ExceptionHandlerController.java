@@ -42,4 +42,15 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(value = {NoContentException.class})
+    protected ResponseEntity<ExceptionDTO> handleNoContentException(NoContentException ex,
+                                                                           WebRequest request) {
+        ExceptionDTO message = new ExceptionDTO(
+                HttpStatus.NO_CONTENT.value(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+
+        return new ResponseEntity<>(message, HttpStatus.NO_CONTENT);
+    }
 }
