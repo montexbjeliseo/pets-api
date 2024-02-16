@@ -3,6 +3,7 @@ package com.nocountry.c1634mjava.petsbackend.services.impl;
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestCreatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestUpdatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.ResponsePetDTO;
+import com.nocountry.c1634mjava.petsbackend.exceptions.NoContentException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ResourceNotFoundException;
 import com.nocountry.c1634mjava.petsbackend.mappers.PetMapper;
 import com.nocountry.c1634mjava.petsbackend.models.Pet;
@@ -42,6 +43,10 @@ public class PetServiceImpl implements IPetService {
     public List<ResponsePetDTO> getAllPets(int offset, int limit) {
         Pageable pageable = PageRequest.of(offset / limit, limit);
         Page<Pet> pets = petRepository.findAll(pageable);
+
+        if(pets.isEmpty()){
+            throw new NoContentException("No pets found");
+        }
         return petMapper.toResponsePetDTOList(pets.getContent());
     }
 
@@ -49,6 +54,11 @@ public class PetServiceImpl implements IPetService {
     public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String age, String size, String gender) {
         Pageable pageable = PageRequest.of(offset / limit, limit);
         Page<Pet> pets = petRepository.filterPets(species, city, age, size, gender, pageable);
+
+        if(pets.isEmpty()){
+            throw new NoContentException("No pets found");
+        }
+
         return petMapper.toResponsePetDTOList(pets.getContent());
     }
 
