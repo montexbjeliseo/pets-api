@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
+import org.springframework.http.ResponseEntity;
 
 @Tag(name = "Pet Controller", description = "Pet Management endpoints")
 @RestController
@@ -86,5 +87,17 @@ public class PetController {
             @Parameter(name = "id", description = "The id of the pet to update", required = true)
             @PathVariable Long id, @Valid @RequestBody RequestUpdatePetDTO requestUpdatePetDTO) {
         return petService.updatePet(id, requestUpdatePetDTO);
+    }
+    
+    @DeleteMapping ("/pet/{id}")
+    public ResponseEntity <String> deletePet(@PathVariable Long id) {
+       
+        boolean removed = petService.deletePet(id);
+        if(removed) {
+            return new ResponseEntity<>("La mascota fue borrada exitosamente", HttpStatus.OK);
+        } else {
+        return new ResponseEntity<>("La mascota con ese id no existe", HttpStatus.NOT_FOUND);
+    }
+        
     }
 }

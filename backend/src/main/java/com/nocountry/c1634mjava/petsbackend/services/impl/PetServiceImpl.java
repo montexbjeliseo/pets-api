@@ -75,4 +75,18 @@ public class PetServiceImpl implements IPetService {
 
         return petMapper.toResponsePetDTO(savedPet);
     }
-}
+
+    @Override
+    public boolean deletePet(Long id) {
+        Optional <Pet> optionalPet = petRepository.findById(id);
+        
+        if (optionalPet.isPresent()) {
+        petRepository.deleteById(id);
+        return true;
+    } else {
+        return false;
+    }
+   
+    }
+    }
+
