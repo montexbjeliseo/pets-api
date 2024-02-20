@@ -33,7 +33,6 @@ public class User implements UserDetails {
     @NotBlank
     private String lastname;
 
-    @NotBlank
     private String city;
 
     @NotBlank
@@ -43,22 +42,18 @@ public class User implements UserDetails {
     @NotBlank
     private String password;
 
-    @NotBlank
     private String phone;
 
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)
-    @NotNull
     private Boolean pets;
 
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)
-    @NotNull
     private Boolean kids;
 
-    @NotNull
-    @ElementCollection
-    private List<String> images;
+    @Column(name = "profile_image")
+    private String profileImage;
 
 
     @ManyToMany

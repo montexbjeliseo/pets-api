@@ -1,5 +1,6 @@
 package com.nocountry.c1634mjava.petsbackend.exceptions;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -53,4 +54,15 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(message, HttpStatus.NO_CONTENT);
     }
+    /*@ExceptionHandler(value = {ConstraintViolationException.class})
+    protected ResponseEntity<ExceptionDTO> handleConstraintViolationException(ConstraintViolationException ex,
+                                                                           WebRequest request) {
+        ExceptionDTO message = new ExceptionDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }*/
 }

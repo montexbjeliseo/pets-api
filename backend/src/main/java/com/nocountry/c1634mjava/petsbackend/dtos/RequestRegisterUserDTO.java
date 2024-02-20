@@ -19,13 +19,18 @@ public class RequestRegisterUserDTO {
     @NotBlank(message = "Lastname cannot be blank")
     private String lastname;
 
-    @NotBlank(message = "City cannot be blank")
+    @NotBlank(message = "Email cannot be blank")
     @Email(message = "Email must be a valid email address")
     private String email;
+
+    @NotBlank(message = "City cannot be blank")
+    private String city;
 
     @NotBlank(message = "Password cannot be blank")
     private String password;
 
     @NotBlank(message = "Confirm password cannot be blank")
     private String password2;
+
+    private String profileImage;
 }
