@@ -1,5 +1,6 @@
 package com.nocountry.c1634mjava.petsbackend.exceptions;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -52,5 +53,27 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
                 request.getDescription(false));
 
         return new ResponseEntity<>(message, HttpStatus.NO_CONTENT);
+    }
+    @ExceptionHandler(value = {ValueAlreadyInUseException.class})
+    protected ResponseEntity<ExceptionDTO> handleValueAlreadyInUseException(ValueAlreadyInUseException ex,
+                                                                           WebRequest request) {
+        ExceptionDTO message = new ExceptionDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(value = {PasswordMismatchException.class})
+    protected ResponseEntity<ExceptionDTO> handlePasswordMismatchException(PasswordMismatchException ex,
+                                                                           WebRequest request) {
+        ExceptionDTO message = new ExceptionDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 }

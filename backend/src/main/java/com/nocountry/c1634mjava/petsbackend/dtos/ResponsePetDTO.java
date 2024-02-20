@@ -1,9 +1,11 @@
 package com.nocountry.c1634mjava.petsbackend.dtos;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class ResponsePetDTO {
 
     private Long id;
