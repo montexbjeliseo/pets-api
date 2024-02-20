@@ -81,12 +81,12 @@ public class PetServiceImpl implements IPetService {
         Optional <Pet> optionalPet = petRepository.findById(id);
         
         if (optionalPet.isPresent()) {
-        petRepository.deleteById(id);
-        return true;
-    } else {
-        return false;
-    }
+            petRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
    
     }
-    }
+}
 

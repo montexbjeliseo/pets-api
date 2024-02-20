@@ -4,6 +4,7 @@ import com.nocountry.c1634mjava.petsbackend.dtos.RequestCreatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestUpdatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.ResponsePetDTO;
 import com.nocountry.c1634mjava.petsbackend.services.IPetService;
+import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -22,7 +23,7 @@ import org.springframework.http.ResponseEntity;
 
 @Tag(name = "Pet Controller", description = "Pet Management endpoints")
 @RestController
-@RequestMapping("/api/pets")
+@RequestMapping(Constants.Endpoints.PETS)
 @RequiredArgsConstructor
 public class PetController {
 
@@ -81,7 +82,7 @@ public class PetController {
             @ApiResponse(responseCode = "400", description = "Invalid request body"),
             @ApiResponse(responseCode = "403", description = "No permissions to update pet")
     })
-    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PatchMapping(value = Constants.Endpoints.ID, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponsePetDTO updatePet(
             @Parameter(name = "id", description = "The id of the pet to update", required = true)
@@ -95,7 +96,7 @@ public class PetController {
             @ApiResponse(responseCode = "404", description = "Pet not found")
     })
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping ("/{id}")
+    @DeleteMapping (Constants.Endpoints.ID)
     public ResponseEntity <String> deletePet(@PathVariable Long id) {
        
         boolean removed = petService.deletePet(id);
