@@ -1,6 +1,8 @@
 package com.nocountry.c1634mjava.petsbackend.controllers;
 
+import com.nocountry.c1634mjava.petsbackend.dtos.RequestLoginDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestRegisterUserDTO;
+import com.nocountry.c1634mjava.petsbackend.dtos.ResponseLoginDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.ResponseRegisterUserDTO;
 import com.nocountry.c1634mjava.petsbackend.services.IUserService;
 import com.nocountry.c1634mjava.petsbackend.utils.Constants;
@@ -18,9 +20,15 @@ public class AuthController {
 
     private final IUserService userService;
 
-    @PostMapping("/register")
+    @PostMapping(Constants.Endpoints.REGISTER)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseRegisterUserDTO registerUser(@Valid @RequestBody RequestRegisterUserDTO requestRegisterUserDTO) {
         return userService.registerUser(requestRegisterUserDTO);
+    }
+
+    @PostMapping(Constants.Endpoints.LOGIN)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseLoginDTO loginUser(@Valid @RequestBody RequestLoginDTO requestLoginDTO) {
+        return userService.loginUser(requestLoginDTO);
     }
 }

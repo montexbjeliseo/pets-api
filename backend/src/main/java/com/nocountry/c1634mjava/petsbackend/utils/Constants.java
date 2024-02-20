@@ -12,8 +12,12 @@ public class Constants {
         public static final String PETS_ID = PETS + ID;
 
         public static final String AUTH = BASE + "/auth";
-        public static final String LOGIN = AUTH + "/login";
-        public static final String REGISTER = AUTH + "/register";
+
+        public static final String LOGIN = "/login";
+
+        public static final String REGISTER = "/register";
+        public static final String AUTH_LOGIN = AUTH + LOGIN;
+        public static final String AUTH_REGISTER = AUTH + REGISTER;
     }
 
     public abstract static class Roles {

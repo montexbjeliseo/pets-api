@@ -4,6 +4,7 @@ package com.nocountry.c1634mjava.petsbackend.configuration;
 import com.nocountry.c1634mjava.petsbackend.filters.JwtRequestFilter;
 import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -38,8 +39,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers(
                                 HttpMethod.POST,
-                                Constants.Endpoints.LOGIN,
-                                Constants.Endpoints.REGISTER
+                                Constants.Endpoints.AUTH_LOGIN,
+                                Constants.Endpoints.AUTH_REGISTER
                         ).permitAll()
                         .requestMatchers(
                                 HttpMethod.GET,
