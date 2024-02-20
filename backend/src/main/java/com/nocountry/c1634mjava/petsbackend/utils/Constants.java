@@ -18,6 +18,10 @@ public class Constants {
         public static final String REGISTER = "/register";
         public static final String AUTH_LOGIN = AUTH + LOGIN;
         public static final String AUTH_REGISTER = AUTH + REGISTER;
+
+        public static final String SWAGGER_UI = "/swagger-ui/**";
+
+        public static final String SWAGGER_CONFIG = "/v3/api-docs/**";
     }
 
     public abstract static class Roles {

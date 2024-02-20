@@ -10,6 +10,7 @@ import com.nocountry.c1634mjava.petsbackend.models.Pet;
 import com.nocountry.c1634mjava.petsbackend.repositories.PetRepository;
 import com.nocountry.c1634mjava.petsbackend.services.IPetService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +24,7 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class PetServiceImpl implements IPetService {
 
     private final PetRepository petRepository;
@@ -87,6 +89,16 @@ public class PetServiceImpl implements IPetService {
             return false;
         }
    
+    }
+
+    @Override
+    public void savePets(List<Pet> pets) {
+
+        if(petRepository.count() == 0){
+            log.info("Loading initial pets");
+            petRepository.saveAll(pets);
+        }
+
     }
 }
 

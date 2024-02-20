@@ -45,7 +45,9 @@ public class SecurityConfig {
                         .requestMatchers(
                                 HttpMethod.GET,
                                 Constants.Endpoints.PETS,
-                                Constants.Endpoints.PETS_ID
+                                Constants.Endpoints.PETS_ID,
+                                Constants.Endpoints.SWAGGER_UI,
+                                Constants.Endpoints.SWAGGER_CONFIG
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

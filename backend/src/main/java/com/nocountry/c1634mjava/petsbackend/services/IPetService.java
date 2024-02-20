@@ -3,6 +3,7 @@ package com.nocountry.c1634mjava.petsbackend.services;
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestCreatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.RequestUpdatePetDTO;
 import com.nocountry.c1634mjava.petsbackend.dtos.ResponsePetDTO;
+import com.nocountry.c1634mjava.petsbackend.models.Pet;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface IPetService {
     public boolean deletePet(Long id);
 
     public ResponsePetDTO updatePet(Long id, RequestUpdatePetDTO requestUpdatePetDTO);
+
+    public void savePets(List<Pet> pets);
 }
