@@ -1,16 +1,16 @@
 package com.nocountry.c1634mjava.petsbackend.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.util.List;
 
 
 @Entity
-@Table(name = "pets")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,15 +21,49 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String lastname;
-    private String city;
-    private String email;
-    private String phone;
-    private Boolean pets;
-    private Boolean kids;
-    
+    @NotBlank
+    private String firstname;
 
+    @NotBlank
+    private String lastname;
+
+    @NotBlank
+    private String city;
+
+    @NotBlank
+    @Email
+    private String email;
+
+    @NotBlank
+    private String phone;
+
+    @Getter(value = AccessLevel.NONE)
+    @Setter(value = AccessLevel.NONE)
+    @NotNull
+    private Boolean pets;
+
+    @Getter(value = AccessLevel.NONE)
+    @Setter(value = AccessLevel.NONE)
+    @NotNull
+    private Boolean kids;
+
+    @NotNull
     @ElementCollection
     private List<String> images;
+
+    public boolean hasPets(){
+        return this.pets;
+    }
+
+    public boolean hasKids(){
+        return this.kids;
+    }
+
+    public void setPets(boolean pets){
+        this.pets = pets;
+    }
+
+    public void setKids(boolean kids){
+        this.kids = kids;
+    }
 }

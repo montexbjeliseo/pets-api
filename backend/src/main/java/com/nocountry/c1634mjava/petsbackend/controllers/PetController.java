@@ -88,16 +88,22 @@ public class PetController {
             @PathVariable Long id, @Valid @RequestBody RequestUpdatePetDTO requestUpdatePetDTO) {
         return petService.updatePet(id, requestUpdatePetDTO);
     }
-    
-    @DeleteMapping ("/pet/{id}")
+
+    @Operation(summary = "Delete a pet profile")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Pet deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Pet not found")
+    })
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping ("/{id}")
     public ResponseEntity <String> deletePet(@PathVariable Long id) {
        
         boolean removed = petService.deletePet(id);
         if(removed) {
             return new ResponseEntity<>("La mascota fue borrada exitosamente", HttpStatus.OK);
         } else {
-        return new ResponseEntity<>("La mascota con ese id no existe", HttpStatus.NOT_FOUND);
-    }
+            return new ResponseEntity<>("La mascota con ese id no existe", HttpStatus.NOT_FOUND);
+        }
         
     }
 }
