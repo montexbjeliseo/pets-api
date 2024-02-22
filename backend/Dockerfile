@@ -2,6 +2,8 @@ FROM eclipse-temurin:17-jdk-jammy
 
 LABEL authors="no-country-c16-34-m-java"
 
+EXPOSE 10000
+
 WORKDIR /app
 
 # Copy the source code
