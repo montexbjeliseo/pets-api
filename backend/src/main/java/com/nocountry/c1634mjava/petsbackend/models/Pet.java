@@ -37,15 +37,9 @@ public class Pet {
     private boolean approval;
     
     @ManyToOne
-    @JoinTable(name = "pets_users",
-            joinColumns = @JoinColumn(name = "pet_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> users = new HashSet<>();
     
     @OneToMany
-    @JoinTable(name = "pets_forms",
-            joinColumns = @JoinColumn(name = "pet_id"),
-            inverseJoinColumns = @JoinColumn(name = "form_id"))
     private Set<Form> forms = new HashSet<>();
 
 
