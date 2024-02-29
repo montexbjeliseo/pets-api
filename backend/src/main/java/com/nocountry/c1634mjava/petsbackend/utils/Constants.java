@@ -8,6 +8,8 @@ public class Constants {
         public static final String PETS = BASE + "/pets";
 
         public static final String ID = "/{id}";
+        
+        public static final String FORMS = BASE + "/forms";
 
         public static final String PETS_ID = PETS + ID;
 
