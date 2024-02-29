@@ -1,9 +1,6 @@
 package com.nocountry.c1634mjava.petsbackend.services.impl;
 
-import com.nocountry.c1634mjava.petsbackend.dtos.RequestLoginDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.RequestRegisterUserDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.ResponseLoginDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.ResponseRegisterUserDTO;
+import com.nocountry.c1634mjava.petsbackend.dtos.*;
 import com.nocountry.c1634mjava.petsbackend.exceptions.PasswordMismatchException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ResourceNotFoundException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ValueAlreadyInUseException;
@@ -20,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -83,6 +81,16 @@ public class UserServiceImpl implements IUserService {
         return ResponseLoginDTO.builder()
                 .token(jwtUtils.generateToken(userDetails))
                 .build();
+    }
+
+    @Override
+    public ResponseUserProfileDTO getUserProfile() {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = userRepository.findByEmail(auth.getName());
+
+        return userMapper.toResponseUserProfileDTO(user);
     }
 
     public void checkAdmin(String email, String password) {
