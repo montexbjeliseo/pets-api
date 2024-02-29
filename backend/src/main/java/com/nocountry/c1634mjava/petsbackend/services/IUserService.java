@@ -9,4 +9,6 @@ public interface IUserService {
     ResponseLoginDTO loginUser(RequestLoginDTO requestLoginDTO);
 
     ResponseUserProfileDTO getUserProfile();
+
+    ResponseUserProfileDTO updateProfileDTO(RequestUpdateUserDTO requestUpdateUserDTO);
 }

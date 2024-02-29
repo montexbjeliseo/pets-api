@@ -44,8 +44,16 @@ public class AuthController {
         return userService.loginUser(requestLoginDTO);
     }
 
-    @GetMapping("/profile")
+    @GetMapping(Constants.Endpoints.PROFILE)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseUserProfileDTO getUserProfile() {
         return userService.getUserProfile();
     }
+
+    @PatchMapping(Constants.Endpoints.PROFILE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseUserProfileDTO updateProfile(@Valid @RequestBody RequestUpdateUserDTO requestUpdateUserDTO) {
+        return userService.updateProfileDTO(requestUpdateUserDTO);
+    }
+
 }

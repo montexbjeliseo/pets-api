@@ -13,6 +13,7 @@ import com.nocountry.c1634mjava.petsbackend.services.IUserService;
 import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import com.nocountry.c1634mjava.petsbackend.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,6 +31,7 @@ import java.util.Set;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements IUserService {
 
     private final RoleRepository roleRepository;
@@ -91,6 +93,22 @@ public class UserServiceImpl implements IUserService {
         User user = userRepository.findByEmail(auth.getName());
 
         return userMapper.toResponseUserProfileDTO(user);
+    }
+
+    @Override
+    public ResponseUserProfileDTO updateProfileDTO(RequestUpdateUserDTO requestUpdateUserDTO) {
+
+        log.info("updateProfileDTO: {}", requestUpdateUserDTO);
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = userRepository.findByEmail(auth.getPrincipal().toString());
+
+        user = userMapper.updateUser(user, requestUpdateUserDTO);
+
+        User savedUser = userRepository.save(user);
+
+        return userMapper.toResponseUserProfileDTO(savedUser);
     }
 
     public void checkAdmin(String email, String password) {
