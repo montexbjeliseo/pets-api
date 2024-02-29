@@ -46,15 +46,15 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 log.info("JwtTokenRequestFilter::doFilterInternal::authHeader");
                 jwtToken = authorizationHeader.substring(7);
                 username = jwtUtils.extractUsername(jwtToken);
+                log.info("JwtTokenRequestFilter::doFilterInternal::username: " + username);
             }
 
             if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
-                log.info("JwtTokenRequestFilter::doFilterInternal::userDetails");
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
                 if(jwtUtils.validateToken(jwtToken, userDetails)){
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                            userDetails, null, userDetails.getAuthorities()
+                            userDetails.getUsername(), userDetails.getPassword(),userDetails.getAuthorities()
                     );
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
@@ -75,7 +75,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         } catch (ServletException | IOException ex) {
             resolver.resolveException(request, response, null, ex);
             log.error("Cannot set user authentication: {}", ex.getMessage());
-
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Cannot set user authentication");
         }
