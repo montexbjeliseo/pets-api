@@ -37,7 +37,7 @@ public class Pet {
     private boolean approval;
     
     @ManyToOne
-    private Set<User> users = new HashSet<>();
+    private User user;
     
     @OneToMany
     private Set<Form> forms = new HashSet<>();
