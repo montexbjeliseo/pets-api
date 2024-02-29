@@ -34,7 +34,7 @@ public class Pet {
     private String breed;
     private Boolean adopted;
     
-    private boolean approval;
+    private Boolean approval = false;
     
     @ManyToOne
     private User user;
