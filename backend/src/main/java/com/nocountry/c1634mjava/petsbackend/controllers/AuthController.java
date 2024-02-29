@@ -1,9 +1,6 @@
 package com.nocountry.c1634mjava.petsbackend.controllers;
 
-import com.nocountry.c1634mjava.petsbackend.dtos.RequestLoginDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.RequestRegisterUserDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.ResponseLoginDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.ResponseRegisterUserDTO;
+import com.nocountry.c1634mjava.petsbackend.dtos.*;
 import com.nocountry.c1634mjava.petsbackend.services.IUserService;
 import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import io.swagger.v3.oas.annotations.Operation;
@@ -46,4 +43,17 @@ public class AuthController {
     public ResponseLoginDTO loginUser(@Valid @RequestBody RequestLoginDTO requestLoginDTO) {
         return userService.loginUser(requestLoginDTO);
     }
+
+    @GetMapping(Constants.Endpoints.PROFILE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseUserProfileDTO getUserProfile() {
+        return userService.getUserProfile();
+    }
+
+    @PatchMapping(Constants.Endpoints.PROFILE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseUserProfileDTO updateProfile(@Valid @RequestBody RequestUpdateUserDTO requestUpdateUserDTO) {
+        return userService.updateProfileDTO(requestUpdateUserDTO);
+    }
+
 }
