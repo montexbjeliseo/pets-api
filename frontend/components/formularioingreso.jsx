@@ -1,9 +1,10 @@
-import style from "./formularioingreso.module.css"
-
+import style from "./formularioingreso.module.css";
+import Image from "next/image";
 
 export default function formularioingreso() {
     return (
         <main>
+            <div className={style.contenedor}>
             <div className={style.costadoIzquierdo}>
                 <p className={style.ingresar}>INGRESAR</p>
                 <br></br>
@@ -48,6 +49,11 @@ export default function formularioingreso() {
                     <br></br>
                     <div className={style.registrocuenta}>
                     <p className={style.cuenta}>¿No tienes una cuenta?<span className={style.rojo}>Regístrate</span></p></div>
+                    <div className={style.foto}>
+                <Image className={style.logo} src="/images/imageningresar.png" width={873} height={570} alt="logo-perro" />
+                
+
+            </div>
 
 
 
@@ -58,6 +64,7 @@ export default function formularioingreso() {
 
 
 
+            </div>
             </div>
 
 

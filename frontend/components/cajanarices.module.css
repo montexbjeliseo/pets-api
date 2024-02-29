@@ -1,6 +1,11 @@
 .derecha {
     display: flex;
     justify-content: flex-end;
+    font-weight: medium;
+    
+    
+    font-size: 20px;
+
 }
 
 /* .cuerpo {
@@ -30,8 +35,8 @@
 .h2 {
     display: flex;
     
-    weight: 900;
-    size: 48px;
+    font-weight: 900;
+    font-size: 48px;
 
 
 }
@@ -59,4 +64,10 @@ margin-top: 30px;
 
   .patrocinadorImgarriba {
 margin-bottom: 50px;
+  }
+  .izquierda{
+    font-weight: bold;
+    
+    
+    font-size: 18px;
   }

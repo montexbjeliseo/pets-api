@@ -63,15 +63,17 @@
 
 .home_h2__qGzbf {
     font-weight:bold;
-    weight: 900;
+    font-weight: 800;
     text-align:center;
-    size: 48px;
+    font-size: 48px;
+
+   
 }
 
 .home_texto1__eRdE_{
     text-align: center;
-    weight: 500;
-    size: 20px;
+    font-weight: medium;
+    font-size: 20px;
 }
 
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
@@ -169,6 +171,8 @@
   .fundaciones_titulo__j_Q6s {
     color: black;
     text-align: center;
+    font-size: 36px;
+    font-weigth: semibold;
   }
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/cajaimagenes.module.css ***!
@@ -199,9 +203,10 @@
   }
 
   .cajaimagenes_titulo__hdf5d {
-    color: black;
+    
     text-alig: center;
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 48px;
     
   }
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -220,7 +225,7 @@
 }
 .cajaperro_dar__LQ6Th {
     text-align: center;
-    size: 48px;
+    font-size: 48px;
     font-weight: bold;
 }
 .cajaperro_rojo__RIhQ_ {
@@ -240,8 +245,8 @@
 }
 
 .cajaperro_texto__CocQ1 {
-    weight: 500px;
-    size: 20px;
+   font-weight: medium;
+    font-size: 20px;
 
 }
 .cajaperro_contenedorboton__QsI61 {
@@ -256,6 +261,11 @@
 .cajanarices_derecha__Ir_t1 {
     display: flex;
     justify-content: flex-end;
+    font-weight: medium;
+    
+    
+    font-size: 20px;
+
 }
 
 /* .cuerpo {
@@ -285,8 +295,8 @@
 .cajanarices_h2__i4J5O {
     display: flex;
     
-    weight: 900;
-    size: 48px;
+    font-weight: 900;
+    font-size: 48px;
 
 
 }
@@ -314,6 +324,12 @@ margin-top: 30px;
 
   .cajanarices_patrocinadorImgarriba__K96rh {
 margin-bottom: 50px;
+  }
+  .cajanarices_izquierda__amFn9{
+    font-weight: bold;
+    
+    
+    font-size: 18px;
   }
 /*!************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/footer.module.css ***!

@@ -1,8 +1,16 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/formularioingreso.module.css ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************/
-.formularioingreso_costadoIzquierdo__NqKmk{
-   padding-left: 30px;
+.formularioingreso_contenedor__rgdq1{
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: stretch;
+}
+
+.formularioingreso_costadoIzquierdo__NqKmk, .formularioingreso_foto__S_3xK{
+  
+   width: 50%;
+
 }
 
 .formularioingreso_ingresar__cW4xW{
@@ -91,6 +99,11 @@ font-size: 16px;
 .formularioingreso_registrocuenta__rDPhV {
     padding-left: 50px;
 }
+.formularioingreso_foto__S_3xK {
+    
+   flex-grow: 2;
+}
+
 
 
 /*!************************************************************************************************************************************************************************************************************************************************************************!*\

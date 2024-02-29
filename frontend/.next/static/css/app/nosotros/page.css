@@ -1,3 +1,116 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/nosotros.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+.nosotros_contenedor__v3KaE {
+    background-image: url(/_next/static/media/nosotros.ecffd3bd.png);
+    width: 100vw;
+    height: 80vw;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.nosotros_acerca__7Z4YH{
+    width: 50%;
+    width: 646px;
+    height: 819px;
+    background-color: white;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los elementos hacia el principio del eje principal (arriba en este caso) */
+    margin-left: auto;
+    padding: 3em 4.5em 3em 4.5em;
+    margin-bottom: 3em;
+    margin-top: 3em;
+    
+
+}
+
+.nosotros_header__n1095 {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 800;
+    font-size: 48px;
+    text-align: center;
+}
+
+.nosotros_texto__GRbH_ {
+    font-size: 20px;
+    text-align: center;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/nuestroequipo.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.nuestroequipo_contenedor__60Ocu{
+    background-color: #f8f3e3;
+}
+
+.nuestroequipo_header__jnYcN{
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.nuestroequipo_contenedorheader__IGdmV{
+    text-align: center;
+    font-weight: bold;
+    size: 48px;
+    
+}
+
+.nuestroequipo_foto__o5FeL{
+    margin: 2em 2em 2em 2em;
+    border-radius: 30;
+}
+
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/nuestrosvalores.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+.nuestrosvalores_contenedor__d__bx {
+   display: flex;
+   
+
+}
+.nuestrosvalores_contenedorheader__vwGZl{
+    flex: column;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-left: 60px;
+    margin-rigth: 60px;
+    
+}
+.nuestrosvalores_foto__5nzOm {
+    flex: column;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    margin-left: 5em;
+    margin-rigth: 5em !important;
+}
+
+.nuestrosvalores_divheader__u6_7z{ 
+    display: flex; 
+    font-weight: bold;
+   
+}
+
+.nuestrosvalores_header__gG1lS {
+    font-size: 48px;
+}
+
+.nuestrosvalores_titulos__58Pw_{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.nuestrosvalores_parrafo__y7VLt {
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 20px;
+}
 /*!************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/footer.module.css ***!
   \************************************************************************************************************************************************************************************************************************************************************************/
@@ -57,15 +170,4 @@
 
 .footer_footer__mqdak{ 
     background-color: #f8f3e3 ;
-}
-/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/nosotros.module.css ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************/
-.nosotros_contenedor__v3KaE {
-    background-image: url(/_next/static/media/nosotros.ecffd3bd.png);
-    width: 100vw;
-    height: 100vw;
-    display: flex;
-    background-size: cover;
-    background-repeat: no-repeat;
 }

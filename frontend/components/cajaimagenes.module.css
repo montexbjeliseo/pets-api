@@ -24,8 +24,9 @@
   }
 
   .titulo {
-    color: black;
+    
     text-alig: center;
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 48px;
     
   }

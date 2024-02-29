@@ -1,5 +1,5 @@
 import style from "./nosotros.module.css"
-import Image from "next/image";
+
 
 
 export default function nosotros() {
@@ -25,6 +25,9 @@ export default function nosotros() {
                             Nuestro objetivo final es poder encontrar un hogar para cada uno de nuestros rescatados. Por eso en Patitas Felices ubicamos familias y personas responsables interesadas en adoptar. Adicional a esta labor nos encargamos de hacer el seguimiento a cada uno de los animales entregados.
 
                         </p>
+
+                    
+                        
 
                     </div>
                 </div>

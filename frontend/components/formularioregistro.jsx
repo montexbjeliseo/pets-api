@@ -140,8 +140,8 @@ export default function formularioregistro() {
             </div>
 
             <div>
-                <Image className={style.logo} src="/images/imagenregistro1.png" width={873} height={570} alt="logo-perro" />
-                <Image className={style.logoarriba} src="/images/imagenregistro2.png" width={873} height={570} alt="logo-perro" />
+                <Image className={style.logo} src="/images/imagenregistro.png" width={873} height={570} alt="logo-perro" />
+                
 
             </div>
 

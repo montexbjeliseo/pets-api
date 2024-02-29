@@ -11,7 +11,7 @@
 }
 .dar {
     text-align: center;
-    size: 48px;
+    font-size: 48px;
     font-weight: bold;
 }
 .rojo {
@@ -31,8 +31,8 @@
 }
 
 .texto {
-    weight: 500px;
-    size: 20px;
+   font-weight: medium;
+    font-size: 20px;
 
 }
 .contenedorboton {
