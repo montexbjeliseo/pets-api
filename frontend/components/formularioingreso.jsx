@@ -1,5 +1,7 @@
 import style from "./formularioingreso.module.css";
 import Image from "next/image";
+import { AiOutlineMail } from 'react-icons/ai';
+import { FaKey, FaGoogle, FaFacebook } from 'react-icons/fa';
 
 export default function formularioingreso() {
     return (
@@ -10,9 +12,13 @@ export default function formularioingreso() {
                 <br></br>
                 <p className={style.mensaje}>¡Bienvenido! Inicia sesión para  acceder a tu cuenta</p>
                 <br></br>
+
+
                 <p className={style.parrafo}>Email</p>
                 <div className={style.input}>
-                    <label className={style.label} >   @Ingrese aquí su email</label>
+                <AiOutlineMail color="red"/>
+
+                    <label className={style.label} >Ingrese aquí su email</label>
                     <input
                         type="text"
                         id="emailInput"
@@ -22,11 +28,13 @@ export default function formularioingreso() {
                 <p className={style.parrafo}>Contraseña</p>
 
                 <div className={style.input}>
+                <FaKey color="red"/>
                     <label className={style.label}>Ingrese su contraseña</label>
                     <input
                         type="password"
                         id="passwordInput" />
                     <br></br>
+
                     <div className={style.recordame}>
                         <button className={style.boton}></button>
                         <p>Recordarme</p>
@@ -42,9 +50,11 @@ export default function formularioingreso() {
                     <br></br>
 
                     <div>
+                        <FaGoogle/>
                         <label className={style.ingresarred}>Ingresar con Google</label></div>
                         <br></br>
                      <div>   
+                        <FaFacebook/>
                     <label className={style.ingresarred}>Ingresar con Facebook</label></div>
                     <br></br>
                     <div className={style.registrocuenta}>
