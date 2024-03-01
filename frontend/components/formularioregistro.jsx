@@ -1,12 +1,14 @@
 import style from "./formularioregistro.module.css";
 import Image from "next/image";
+import { FaUser, FaLock } from 'react-icons/fa';
+import { MdMail, MdLocationOn } from 'react-icons/md';
 
 
 export default function formularioregistro() {
     return (
         <main>
 
-            <div className={style.costadoIzquierdo}>
+            <div class= "grid grid-cols-1 gap-4 p-4">
                 <p className={style.ingresar}>REGISTRARSE</p>
                 <br></br>
                 <p className={style.mensaje}>Crea tu cuenta y encuentra tu compañero ideal</p>
@@ -14,6 +16,7 @@ export default function formularioregistro() {
 
                 <br></br>
                 <div className={style.primercolumna}>
+                <FaUser color="red"/>
                     <p className={style.parrafo}>Nombre</p>
                     <div className={style.input}>
                         <label className={style.label} >Ingrese aquí su nombre</label>
@@ -24,9 +27,10 @@ export default function formularioregistro() {
                     </div>
 
                     <br></br>
+                    <MdMail color="red"/>
                     <p className={style.parrafo}>Email</p>
                     <div className={style.input}>
-                        <label className={style.label} >   @Ingrese aquí su email</label>
+                        <label className={style.label} >Ingrese aquí su email</label>
                         <input
                             type="text"
                             id="emailInput"
@@ -34,6 +38,7 @@ export default function formularioregistro() {
                     </div>
 
                     <br></br>
+                    <FaLock color="red"/>
                     <p className={style.parrafo}>Contraseña</p>
 
                     <div className={style.input}>
@@ -43,6 +48,7 @@ export default function formularioregistro() {
                             id="passwordInput" />
                     </div>
                     <br></br>
+                    <MdLocationOn color="red"/>
 
                     <p className={style.parrafo}>Ciudad</p>
                     <div className={style.input}>
@@ -69,7 +75,8 @@ export default function formularioregistro() {
 
                 <br></br>
 
-                <div className={style.segundacolumna}>
+                <div class= "grid grid-cols-1 gap-4 p-4">
+                <FaUser color="red"/>
 
                 <p className={style.parrafo}>Apellido</p>
                 <div className={style.input}>
@@ -80,16 +87,18 @@ export default function formularioregistro() {
                     />
                 </div>
                 <br></br>
+                <MdMail color="red"/>
 
                 <p className={style.parrafo}>Email</p>
                 <div className={style.input}>
-                    <label className={style.label} > @Confirme su email</label>
+                    <label className={style.label} > Confirme su email</label>
                     <input
                         type="text"
                         id="emailInput1"
                     />
                 </div>
                 <br></br>
+                <FaLock color="red"/>
                 <p className={style.parrafo}>Contraseña</p>
 
                 <div className={style.input}>
