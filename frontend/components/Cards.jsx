@@ -1,36 +1,28 @@
-"use client";
+'use server';
 
-import React, { useEffect, useState } from "react";
+import { fetchPets } from "@/services/actions/fetch-pets";
 import Card from "./Card";
-import data from "../public/pet.data.json";
 
 import style from "./cards.module.css";
-import { API_BASE_URL } from "@/constants";
 
-const Cards = () => {
-  const [data, setData] = useState([]);
+const Cards = async ({searchParams}) => {
 
-   useEffect(() => {
-     const fetchData = async () => {
-       try {
-         const response = await fetch(
-          API_BASE_URL.concat("/pets")
-         );
-         const jsonData = await response.json();
-         setData(jsonData);
-       } catch (error) {
-         console.error("Error al obtener los datos:", error);
-       }
-     }
-     fetchData();
-   }, []);
+  const data = await fetchPets(searchParams);
+
+  if(!Array.isArray(data) || data.length === 0){
+    return (
+      <div>
+        <strong>No hay mascotas disponibles con esta busqueda</strong>
+      </div>
+    )
+  }
 
   return (
     <div className={style.cardsContainer}>
       {Array.isArray(data) &&
-        data.map((elem, index) => (
+        data.map((elem) => (
           <Card
-            key={elem.index}
+            key={elem.id}
             imagen={elem.images}
             nombre={elem.name}
             raza={elem.species}
