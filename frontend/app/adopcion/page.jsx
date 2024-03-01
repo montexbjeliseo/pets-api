@@ -10,7 +10,7 @@ const page = () => {
     <div>
       <Adopcion />
       <Filters />
-      <h3 className="font-bold text-xl">Mascotas en Adopcion</h3>
+      <h3 className="font-bold text-4xl px-5 mx-auto w-[1312px] mb-16 font-monserrat">Mascotas en Adopcion</h3>
       <Cards />
       <Footer />
     </div>

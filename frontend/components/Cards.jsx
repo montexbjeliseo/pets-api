@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import data from "../public/pet.data.json";
 
 import style from "./cards.module.css";
 import { API_BASE_URL } from "@/constants";
