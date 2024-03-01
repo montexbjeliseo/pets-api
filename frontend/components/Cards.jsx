@@ -5,24 +5,25 @@ import Card from "./Card";
 import data from "../public/pet.data.json";
 
 import style from "./cards.module.css";
+import { API_BASE_URL } from "@/constants";
 
 const Cards = () => {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  //  useEffect(() => {
-  //    const fetchData = async () => {
-  //      try {
-  //        const response = await fetch(
-  //          "https://petsapi-server.onrender.com/api/pets"
-  //        );
-  //        const jsonData = await response.json();
-  //        setData(jsonData);
-  //      } catch (error) {
-  //        console.error("Error al obtener los datos:", error);
-  //      }
-  //    }
-  //    fetchData();
-  //  }, []);
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await fetch(
+          API_BASE_URL.concat("/pets")
+         );
+         const jsonData = await response.json();
+         setData(jsonData);
+       } catch (error) {
+         console.error("Error al obtener los datos:", error);
+       }
+     }
+     fetchData();
+   }, []);
 
   return (
     <div className={style.cardsContainer}>
