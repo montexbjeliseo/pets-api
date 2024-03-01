@@ -15,7 +15,7 @@ export default function cajaimagenes() {
                     </div>
 
                     <div className={style.elementos}>
-                    <Image className={style.imagen} src="/images/imagediv3.png" width={573} height={382} alt="logo-feva" />
+                    <Image className={style.imagen} src="/images/imagendiv1.png" width={573} height={382} alt="logo-feva" />
                     <Image className={style.imagen} src="/images/imagediv2.png" width={573} height={382} alt="logo-pedigree" />
 
                     </div>
