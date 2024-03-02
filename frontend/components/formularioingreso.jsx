@@ -3,11 +3,11 @@ import style from "./formularioingreso.module.css";
 import Image from "next/image";
 import { KeyIcon } from "@/icons/KeyIcon";
 
-export default function formularioingreso() {
+export default function formularioingreso({handleSubmit}) {
     return (
         <main>
             <div className={style.contenedor}>
-                <form className={style.formulario}>
+                <form className={style.formulario} onSubmit={handleSubmit}>
                     <p className={style.ingresar}>INGRESAR</p>
                     <p className={style.mensaje}>¡Bienvenido! Inicia sesión para  acceder a tu cuenta</p>
 
