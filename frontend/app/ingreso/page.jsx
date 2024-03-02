@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Formularioingreso from "@/components/formularioingreso";
-import Footer from "@/components/footer";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/services/actions/sign-in";
 import { ReduxProvider } from "@/providers/redux-provider";
@@ -45,13 +44,12 @@ const Page = () => {
   }, []);
 
   return (
-    <main>
+    <div>
       <div>
         {error && <p className="text-red-500">{error}</p>}
       </div>
       <Formularioingreso handleSubmit={handleSubmit} />
-      <Footer />
-    </main>
+    </div>
   );
 };
 

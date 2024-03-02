@@ -1,6 +1,34 @@
+.container {
+    margin: 0 auto;
+    max-width: 1312px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.inputs {
+    max-width: calc(428px * 2 + 20px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.formBottom {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .costadoIzquierdo{
     margin-left: 20px;
-
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -26,7 +54,6 @@ font-size: 16px;
     height: 50px;
     color: red;
     border-radius: 4px;
-
 }
 
 .boton {
@@ -38,13 +65,12 @@ font-size: 16px;
 
 }
 
-.botonrojo{
+.botonrojo {
     background-color: red;
     width: 428px;
     height: 48px;
     border-radius: 8px;
     color: white;
-
 }
 
 .recordame {
@@ -54,6 +80,7 @@ font-size: 16px;
 .contenedorlinea {
     position: relative; /* Establece la posición relativa para que los elementos absolutos se posicionen en relación con este contenedor */
     height: 3px; /* Define la altura de la línea */
+    width: 428px;
     background-color: black; /* Define el color de la línea */
   }
 
@@ -67,7 +94,9 @@ font-size: 16px;
     border-radius: 50%; /* Hace que el círculo tenga bordes redondeados */
     background-color: white; /* Define el color del círculo */
     border-color: black;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .ingresarred {

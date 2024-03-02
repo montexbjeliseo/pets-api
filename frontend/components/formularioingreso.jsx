@@ -2,6 +2,7 @@ import { AtIcon } from "@/icons/AtIcon";
 import style from "./formularioingreso.module.css";
 import Image from "next/image";
 import { KeyIcon } from "@/icons/KeyIcon";
+import Link from "next/link";
 
 export default function formularioingreso({handleSubmit}) {
     return (
@@ -16,7 +17,7 @@ export default function formularioingreso({handleSubmit}) {
                             <span className="font-semibold">Email</span>
                             <div className={style.emailInputContainer}>
                                 <AtIcon color="#ff0000" />
-                                <input className={style.emailInput} type="email" name="email" placeholder="Ingrese su email" />
+                                <input className={style.emailInput} type="email" name="email" placeholder="Ingrese su email" required />
                             </div>
                         </label>
                     </div>
@@ -26,7 +27,7 @@ export default function formularioingreso({handleSubmit}) {
                             <span className="font-semibold">Contraseña</span>
                             <div className={style.passwordInputContainer}>
                                 <KeyIcon color="#ff0000" />
-                                <input className={style.passwordInput} type="password" name="password" placeholder="Ingrese su contraseña" />
+                                <input className={style.passwordInput} type="password" name="password" placeholder="Ingrese su contraseña" required />
                             </div>
                         </label>
                     </div>
@@ -50,7 +51,7 @@ export default function formularioingreso({handleSubmit}) {
                         <label className={style.ingresarred}>Ingresar con Facebook</label></div>
 
                     <div className={style.registrocuenta}>
-                        <p className={style.cuenta}>¿No tienes una cuenta? <span className={style.rojo}>Regístrate</span>
+                        <p className={style.cuenta}>¿No tienes una cuenta? <Link className={style.rojo} href="/registrarse">Regístrate</Link>
                         </p>
                     </div>
                 </form>
