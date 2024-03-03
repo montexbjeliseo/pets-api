@@ -11,16 +11,6 @@ const Filters = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const ageToRange = (age) => {
-    if (age === "cachorro") {
-      return [0, 12];
-    } else if (age === "joven") {
-      return [12, 18];
-    } else {
-      return [18, 500];
-    }
-  }
-
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams.toString())
@@ -43,12 +33,9 @@ const Filters = () => {
 
   const handleSpeciesFilterChange = (event) => handleFilter("species", event.target.value);
   const handleSizeFilterChange = (event) => handleFilter("size", event.target.value);
+  const handleAgeFilterChange = (event) => handleFilter("age", event.target.value);
   const handleGenderFilterChange = (event) => handleFilter("gender", event.target.value);
   const handleCityFilterChange = (event) => handleFilter("city", event.target.value);
-  
-  const handleAgeFilterChange = (event) => {
-    handleFilter("age", event.target.value);
-  };
 
   return (
     <div className={style.filterContainer}>

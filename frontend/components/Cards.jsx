@@ -7,11 +7,11 @@ import style from "./cards.module.css";
 
 const Cards = async ({searchParams}) => {
 
-  // const data = await fetchPets(searchParams);
+  const data = await fetchPets(searchParams);
 
   console.log(searchParams);
 
-  const data = [];
+  // const data = [];
 
   if(!Array.isArray(data) || data.length === 0){
     return (
