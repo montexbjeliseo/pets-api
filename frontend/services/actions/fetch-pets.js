@@ -24,8 +24,6 @@ export const fetchPets = async (searchParams) => {
         }
     }
 
-    console.log("Fetch params:", params);
-
     const response = await fetch(url + "?" + params.toString(), {
         cache: "no-store",
     });

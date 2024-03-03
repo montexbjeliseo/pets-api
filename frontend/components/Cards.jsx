@@ -9,13 +9,9 @@ const Cards = async ({searchParams}) => {
 
   const data = await fetchPets(searchParams);
 
-  console.log(searchParams);
-
-  // const data = [];
-
   if(!Array.isArray(data) || data.length === 0){
     return (
-      <div>
+      <div className={style.cardsContainer}>
         <strong>No hay mascotas disponibles con esta busqueda</strong>
       </div>
     )
