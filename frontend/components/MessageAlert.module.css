@@ -1,0 +1,33 @@
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alertBody {
+    background-color: white;
+    padding: 20px;
+    font-size: 14px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.button {
+    background-color: red;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.button:active {
+    background-color: rgb(255, 0, 0, 0.6);
+}

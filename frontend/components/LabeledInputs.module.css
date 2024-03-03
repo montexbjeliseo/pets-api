@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.requirements {
+    opacity: 0.8;
+}
+
 .textInputContainer {
     border: 1px solid #DADADA;
     border-radius: 5px;

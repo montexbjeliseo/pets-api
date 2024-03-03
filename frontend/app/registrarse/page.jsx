@@ -6,10 +6,11 @@ import { ReduxProvider } from "@/providers/redux-provider";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { signUp } from "@/services/actions/sign-up";
+import { MessageAlert } from "@/components/MessageAlert";
 
 const Page = () => {
 
-  const [message, setMessage] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const [error, setError] = useState(null);
 
@@ -17,7 +18,15 @@ const Page = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (token) {
+      router.push("/");
+    }
+  }, []);
+
   const handleSubmit = async (event) => {
+    setError(null);
+    setSuccess(false);
     event.preventDefault();
 
     const payload = Object.fromEntries(new FormData(event.target));
@@ -25,29 +34,39 @@ const Page = () => {
     try {
       const response = await signUp(payload);
 
-      if (response.ok || response.status === 201) {
-        setMessage("Cuenta creada! Inicia sesión para acceder");
+      if (response.ok || response.status == 201) {
+        setSuccess(true);
       } else {
         const data = await response.json();
-        setError("Ocurrió un error al registrar: " + data.message);
+        setError(data.message);
       }
     } catch (error) {
-      setError("Error de red");
+      setError(error.toString());
     }
 
   }
 
-  useEffect(() => {
-    if (token) {
-      router.push("/");
-    }
-  }, []);
+  const goLogin = () => {
+    router.push("/ingreso");
+    setSuccess(false);
+  }
 
   return (
     <div>
-      <div className="text-green-500">{message}</div>
-      <div className="text-red-500">{error}</div>
       <Formularioregistro handleSubmit={handleSubmit} />
+      {success && (
+        <MessageAlert
+          message={<span className="text-green-500">Cuenta creada, se redirigirá al login</span>}
+          title="Cuenta creada"
+          handleClose={goLogin}
+        />
+      )}
+      {error && (
+        <MessageAlert
+          message={error}
+          title="Error"
+          handleClose={() => setError(null)} />
+      )}
     </div>
   );
 };

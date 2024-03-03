@@ -5,9 +5,6 @@ import Fundaciones from "@/components/fundaciones";
 import Cajaimagenes from "@/components/cajaimagenes";
 import Cajaperro from "@/components/cajaperro";
 import Cajanarices from "@/components/cajanarices";
-import Footer from "@/components/footer";
-
-
 
 export default function Home() {
   return (
@@ -43,24 +40,10 @@ export default function Home() {
       <p className={style.texto1}>Ellos te esperan para brindarte todo el amor y companía que necesitas. ¿Qué estás esperando? </p>
       <Cardchica />
       <Patrocinadores />
-      
-      
       <Cajanarices/>
-      
-
-      
       <Fundaciones />
       <Cajaperro />
       <Cajaimagenes />
-      <Footer/>
-
-
-
-
-
-
-
-
     </main>
   );
 }

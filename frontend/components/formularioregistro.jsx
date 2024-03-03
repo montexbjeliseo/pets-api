@@ -6,10 +6,14 @@ import { UserIcon } from "@/icons/UserIcon";
 import { AddLocationIcon } from "@/icons/AddLocationIcon";
 import { MyLocationIcon } from "@/icons/MyLocationIcon";
 import { PostOfficeIcon } from "@/icons/PostOfficeIcon";
-import { PASSWORD_PATTERN_STRING } from "@/constants";
-
+import { PASSWORD_PATTERN, PASSWORD_PATTERN_STRING } from "@/constants";
+import { MessageAlert } from "./MessageAlert";
+import { useState } from "react";
+import { KeyIcon } from "@/icons/KeyIcon";
 
 export default function formularioregistro({ handleSubmit }) {
+
+    const [message, setMessage] = useState(null);
 
     const handleValidSubmit = (e) => {
         
@@ -17,19 +21,17 @@ export default function formularioregistro({ handleSubmit }) {
 
         const payload = Object.fromEntries(new FormData(e.target));
 
-        console.log(payload);
-
         if(payload.email !== payload.email2) {
-            alert("Los correos no coinciden");
+            setMessage("Los correos no coinciden");
             return;
         }
 
         if(payload.password !== payload.password2) {
-            alert("Las contraseñas no coinciden");
+            setMessage("Las contraseñas no coinciden");
             return;
         }
         
-        //handleSubmit(e);
+        handleSubmit(e);
     };
 
     return (
@@ -84,7 +86,7 @@ export default function formularioregistro({ handleSubmit }) {
                         label="Contraseña"
                         name="password"
                         type="password"
-                        icon={<AtIcon color="#ff0000" />}
+                        icon={<KeyIcon color="#ff0000" />}
                         placeholder="Ingrese aquí su contraseña"
                         width={'428px'}
                         pattern={PASSWORD_PATTERN_STRING}
@@ -96,7 +98,7 @@ export default function formularioregistro({ handleSubmit }) {
                         label="Confirmar contraseña"
                         name="password2"
                         type="password"
-                        icon={<AtIcon color="#ff0000" />}
+                        icon={<KeyIcon color="#ff0000" />}
                         placeholder="Confirme aquí su contraseña"
                         width={'428px'}
                         pattern={PASSWORD_PATTERN_STRING}
@@ -142,7 +144,7 @@ export default function formularioregistro({ handleSubmit }) {
                         </label>
 
                         <button className={style.botonrojo}>Registarse</button>
-                        <div className={style.contenedorlinea}>
+                        {/* <div className={style.contenedorlinea}>
                             <span className={style.circulo}>o</span>
                         </div>
 
@@ -151,12 +153,18 @@ export default function formularioregistro({ handleSubmit }) {
                         </div>
                         <div>
                             <label className={style.ingresarred}>Ingresar con Facebook</label>
-                        </div>
+                        </div> */}
                     </div>
                     <Image className={style.logo} src="/images/imagenregistro.png" width={873} height={570} alt="logo-perro" />
                 </div>
-
             </form>
+            {message && (
+                <MessageAlert 
+                title={"Compruebe que los datos sean correctos"}
+                message={message}
+                handleClose={() => setMessage(null)}
+                />
+            )}
         </main >
 
     );
