@@ -53,9 +53,9 @@ public class PetServiceImpl implements IPetService {
     }
 
     @Override
-    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String age, String size, String gender) {
+    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String max_age, String min_age, String size, String gender) {
         Pageable pageable = PageRequest.of(offset / limit, limit);
-        Page<Pet> pets = petRepository.filterPets(species, city, age, size, gender, pageable);
+        Page<Pet> pets = petRepository.filterPets(species, city, max_age, min_age, size, gender, pageable);
 
         if(pets.isEmpty()){
             throw new NoContentException("No pets found");

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "Pet Controller", description = "Pet Management endpoints")
+@Tag(name = "Forms Controller", description = "Form Management endpoints")
 @RestController
 @RequestMapping(Constants.Endpoints.FORMS)
 @RequiredArgsConstructor
