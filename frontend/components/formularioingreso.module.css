@@ -1,13 +1,55 @@
 .contenedor{
     display: flex;
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    align-items: stretch;
+    /* justify-content: space-between;*/ /* Distribuye el espacio entre los elementos */
+    /* align-items: stretch; */
+    max-width: 1312px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 60px;
 }
 
-.costadoIzquierdo, .foto{
-  
-   width: 50%;
+.formulario {
+    max-width: 424px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
+.emailInputContainer,
+.passwordInputContainer {
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.emailInput,
+.passwordInput {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.emailInput::placeholder,
+.passwordInput::placeholder {
+    color: red;
+}
+
+.customLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.foto {
+    max-width: 848px;
+    width: 100%;
 }
 
 .ingresar{
@@ -53,8 +95,16 @@ font-size: 16px;
 
 }
 
+.redCheckbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid red;
+    color: red;
+}
+
 .recordame {
-    display: block;
+    display: flex;
+    justify-content: space-between;
 }
 
 .contenedorlinea {
@@ -73,7 +123,9 @@ font-size: 16px;
     border-radius: 50%; /* Hace que el círculo tenga bordes redondeados */
     background-color: white; /* Define el color del círculo */
     border-color: black;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .ingresarred {
