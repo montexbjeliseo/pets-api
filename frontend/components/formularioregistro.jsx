@@ -6,16 +6,39 @@ import { UserIcon } from "@/icons/UserIcon";
 import { AddLocationIcon } from "@/icons/AddLocationIcon";
 import { MyLocationIcon } from "@/icons/MyLocationIcon";
 import { PostOfficeIcon } from "@/icons/PostOfficeIcon";
+import { PASSWORD_PATTERN_STRING } from "@/constants";
 
 
 export default function formularioregistro({ handleSubmit }) {
+
+    const handleValidSubmit = (e) => {
+        
+        e.preventDefault();
+
+        const payload = Object.fromEntries(new FormData(e.target));
+
+        console.log(payload);
+
+        if(payload.email !== payload.email2) {
+            alert("Los correos no coinciden");
+            return;
+        }
+
+        if(payload.password !== payload.password2) {
+            alert("Las contraseñas no coinciden");
+            return;
+        }
+        
+        //handleSubmit(e);
+    };
+
     return (
         <main className={style.container}>
             <div>
                 <p className={style.ingresar}>REGISTRARSE</p>
                 <p className={style.mensaje}>Crea tu cuenta y encuentra tu compañero ideal</p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleValidSubmit}>
                 <div className={style.inputs}>
                     <LabeledInput
                         label="Nombre"
@@ -24,6 +47,7 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<UserIcon />}
                         placeholder="Ingrese aquí su nombre"
                         width={'428px'}
+                        minLength={4}
                     />
 
                     <LabeledInput
@@ -33,6 +57,7 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<UserIcon />}
                         placeholder="Ingrese aquí su apellido"
                         width={'428px'}
+                        minLength={4}
                     />
 
                     <LabeledInput
@@ -42,6 +67,7 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<AtIcon color="#ff0000" />}
                         placeholder="Ingrese aquí su email"
                         width={'428px'}
+                        minLength={4}
                     />
 
                     <LabeledInput
@@ -51,6 +77,7 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<AtIcon color="#ff0000" />}
                         placeholder="Confirme aquí su email"
                         width={'428px'}
+                        minLength={4}
                     />
 
                     <LabeledInput
@@ -60,6 +87,9 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<AtIcon color="#ff0000" />}
                         placeholder="Ingrese aquí su contraseña"
                         width={'428px'}
+                        pattern={PASSWORD_PATTERN_STRING}
+                        minLength={8}
+                        maxLength={15}
                     />
 
                     <LabeledInput
@@ -69,6 +99,9 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<AtIcon color="#ff0000" />}
                         placeholder="Confirme aquí su contraseña"
                         width={'428px'}
+                        pattern={PASSWORD_PATTERN_STRING}
+                        minLength={8}
+                        maxLength={15}
                     />
 
                     <LabeledInput
@@ -78,6 +111,7 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<AddLocationIcon color="#ff0000" />}
                         placeholder="Ingrese su ciudad"
                         width={'428px'}
+                        minLength={4}
                     />
 
                     <LabeledInput
@@ -87,6 +121,7 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<MyLocationIcon color="#ff0000" />}
                         placeholder="Ingrese su provincia"
                         width={'428px'}
+                        minLength={4}
                     />
 
                     <LabeledInput
@@ -96,13 +131,14 @@ export default function formularioregistro({ handleSubmit }) {
                         icon={<PostOfficeIcon color="#ff0000" />}
                         placeholder="Ingrese su código postal"
                         width={'428px'}
+                        minLength={4}
                     />
                 </div>
                 <div className={style.formBottom}>
                     <div className={style.buttons}>
 
                         <label>
-                            <input type="checkbox" name="" id="" /> <span>He leído y aceptos los términos y condiciones</span>
+                            <input type="checkbox" name="terms" required value={"agree"} /> <span>He leído y aceptos los términos y condiciones</span>
                         </label>
 
                         <button className={style.botonrojo}>Registarse</button>
