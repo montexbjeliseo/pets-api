@@ -2,19 +2,15 @@ import React from "react";
 import Nosotros from "@/components/nosotros";
 import Nuestroequipo from "@/components/nuestroequipo";
 import Nuestrosvalores from "@/components/nuestrosvalores";
-
-import Footer from "@/components/footer";
-
+import style from "./nosotros.module.css";
 
 const page = () => {
   return (
-    <div>
-      <Nosotros/>
-      <Nuestroequipo/>
-      <Nuestrosvalores/>
-      <Footer/>
-
-    </div>
+    <main className={style.contenedor}>
+      <Nosotros />
+      <Nuestroequipo />
+      <Nuestrosvalores />
+    </main>
   );
 };
 
