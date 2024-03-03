@@ -1,22 +1,23 @@
 .contenedor {
    display: flex;
-   
-
+   width: 100%;
+   box-sizing: border-box;
+   padding: 20px;
 }
 .contenedorheader{
     flex: column;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    margin-left: 60px;
-    margin-rigth: 60px;
-    
+    /* padding-bottom: 20px;
+    padding-top: 20px; */
+    /* margin-left: 60px;
+    margin-rigth: 60px; */
+    /* padding: 20px; */
 }
 .foto {
     flex: column;
     padding-bottom: 40px;
     padding-top: 40px;
-    margin-left: 5em;
-    margin-rigth: 5em !important;
+    /* margin-left: 5em;
+    margin-rigth: 5em !important; */
 }
 
 .divheader{ 

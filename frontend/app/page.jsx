@@ -8,7 +8,7 @@ import Cajanarices from "@/components/cajanarices";
 
 export default function Home() {
   return (
-    <main>
+    <main className={style.main}>
       <div className={style.mainContainer}>
         <div className={style.left}>
           <h3 className="">
