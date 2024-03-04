@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "@/constants";
+
 export const fetchPetsSpecies = async () => {
     const response = await fetch(`${API_BASE_URL}/api/pets/species`);
 
