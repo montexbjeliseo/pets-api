@@ -5,13 +5,18 @@
 
 .navBarContainer {
     display: flex;
-    /* padding: 1.2rem 2rem; */
     padding: 1.2rem 20px;
     max-width: 1312px;
     width: 100%;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
+}
+
+.navButtonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .navButton {
@@ -34,4 +39,12 @@
     padding: 0.6rem;
     border-radius: 0.8rem;
     margin: 0rem 0.2rem;
+}
+
+.sessionButtonsContainer {
+    width: calc(126px + 101px + 5px);
+    flex-shrink: 0;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
 }
