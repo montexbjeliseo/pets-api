@@ -12,7 +12,7 @@ const Adopcion = () => {
           <span style={{ color: "red" }}>Adoptá</span> una mascota hoy.
         </h3>
         </div>
-        <p>
+        <p className={style.paragraph}>
           Explore nuestros animales disponibles y obtenga más información sobre
           el proceso de adopción. Juntos, podemos rescatar, rehabilitar y
           realojar a las mascotas necesitadas. Gracias por apoyar nuestra misión
