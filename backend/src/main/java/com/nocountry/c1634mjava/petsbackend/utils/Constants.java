@@ -22,6 +22,7 @@ public class Constants {
         public static final String SWAGGER_UI = "/swagger-ui/**";
 
         public static final String SWAGGER_CONFIG = "/v3/api-docs/**";
+        public static final String CITIES = "/cities";
     }
 
     public abstract static class Roles {

@@ -119,4 +119,13 @@ public class PetController {
         }
 
     }
+
+    @Operation(summary = "Get all cities where a pet in the system lives")
+    @ApiResponse(responseCode = "200", description = "Cities retrieved successfully")
+    @ApiResponse(responseCode = "204", description = "No cities found")
+    @GetMapping(Constants.Endpoints.CITIES)
+    @ResponseStatus(HttpStatus.OK)
+    public List<String> getCities() {
+        return petService.getCities();
+    }
 }

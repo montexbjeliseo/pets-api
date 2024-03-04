@@ -100,5 +100,10 @@ public class PetServiceImpl implements IPetService {
         }
 
     }
+
+    @Override
+    public List<String> getCities() {
+        return petRepository.findDistinctCity();
+    }
 }
 

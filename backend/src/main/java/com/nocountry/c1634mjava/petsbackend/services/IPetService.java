@@ -17,4 +17,6 @@ public interface IPetService {
     public ResponsePetDTO updatePet(Long id, RequestUpdatePetDTO requestUpdatePetDTO);
 
     public void savePets(List<Pet> pets);
+
+    List<String> getCities();
 }
