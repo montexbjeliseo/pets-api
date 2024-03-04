@@ -64,8 +64,11 @@ public class PetController {
             @Parameter(name = "city", description = "The city where the pet lives")
             @RequestParam(required = false) String city,
 
-            @Parameter(name = "age", description = "The age of the pet")
-            @RequestParam(required = false) String age,
+            @Parameter(name = "max_age", description = "The maximum age of the pet")
+            @RequestParam(required = false) String max_age,
+
+            @Parameter(name = "min_age", description = "The minimum age of the pet")
+            @RequestParam(required = false) String min_age,
 
             @Parameter(name = "size", description = "The size of the pet")
             @RequestParam(required = false) String size,
@@ -74,11 +77,11 @@ public class PetController {
             @RequestParam(required = false) String gender
     ) {
 
-        if (Stream.of(species, city, age, size, gender).allMatch(Objects::isNull)) {
+        if (Stream.of(species, city, max_age, min_age, size, gender).allMatch(Objects::isNull)) {
             return petService.getAllPets(offset, limit);
         }
 
-        return petService.getAllPets(offset, limit, species, city, age, size, gender);
+        return petService.getAllPets(offset, limit, species, city, max_age, min_age, size, gender);
     }
 
     @Operation(

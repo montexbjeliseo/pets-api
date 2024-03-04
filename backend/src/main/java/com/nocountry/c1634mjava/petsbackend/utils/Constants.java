@@ -8,6 +8,8 @@ public class Constants {
         public static final String PETS = BASE + "/pets";
 
         public static final String ID = "/{id}";
+        
+        public static final String FORMS = BASE + "/forms";
 
         public static final String PETS_ID = PETS + ID;
 
@@ -22,6 +24,9 @@ public class Constants {
         public static final String SWAGGER_UI = "/swagger-ui/**";
 
         public static final String SWAGGER_CONFIG = "/v3/api-docs/**";
+
+        public static final String PROFILE = "/profile";
+
         public static final String CITIES = "/cities";
         public static final String SPECIES = "/species";
     }

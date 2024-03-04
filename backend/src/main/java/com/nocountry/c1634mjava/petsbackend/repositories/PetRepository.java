@@ -17,13 +17,15 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
     @Query("SELECT p FROM Pet p WHERE " +
             "(:species is null or p.species = :species) and " +
             "(:city is null or p.city = :city) and " +
-            "(:age is null or p.age = :age) and " +
+            "(:max_age is null or p.age <= :max_age) and " +
+            "(:max_age is null or p.age >= :min_age) and " +
             "(:size is null or p.size = :size) and " +
             "(:gender is null or p.gender = :gender)")
     Page<Pet> filterPets(
             @Param("species") String species,
             @Param("city") String city,
-            @Param("age") String age,
+            @Param("max_age") String max_age,
+            @Param("min_age") String min_age,
             @Param("size") String size,
             @Param("gender") String gender,
             @Param("pageable") Pageable pageable);

@@ -1,9 +1,6 @@
 package com.nocountry.c1634mjava.petsbackend.services.impl;
 
-import com.nocountry.c1634mjava.petsbackend.dtos.RequestLoginDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.RequestRegisterUserDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.ResponseLoginDTO;
-import com.nocountry.c1634mjava.petsbackend.dtos.ResponseRegisterUserDTO;
+import com.nocountry.c1634mjava.petsbackend.dtos.*;
 import com.nocountry.c1634mjava.petsbackend.exceptions.PasswordMismatchException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ResourceNotFoundException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ValueAlreadyInUseException;
@@ -16,10 +13,12 @@ import com.nocountry.c1634mjava.petsbackend.services.IUserService;
 import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import com.nocountry.c1634mjava.petsbackend.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,6 +31,7 @@ import java.util.Set;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements IUserService {
 
     private final RoleRepository roleRepository;
@@ -83,6 +83,32 @@ public class UserServiceImpl implements IUserService {
         return ResponseLoginDTO.builder()
                 .token(jwtUtils.generateToken(userDetails))
                 .build();
+    }
+
+    @Override
+    public ResponseUserProfileDTO getUserProfile() {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = userRepository.findByEmail(auth.getName());
+
+        return userMapper.toResponseUserProfileDTO(user);
+    }
+
+    @Override
+    public ResponseUserProfileDTO updateProfileDTO(RequestUpdateUserDTO requestUpdateUserDTO) {
+
+        log.info("updateProfileDTO: {}", requestUpdateUserDTO);
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = userRepository.findByEmail(auth.getPrincipal().toString());
+
+        user = userMapper.updateUser(user, requestUpdateUserDTO);
+
+        User savedUser = userRepository.save(user);
+
+        return userMapper.toResponseUserProfileDTO(savedUser);
     }
 
     public void checkAdmin(String email, String password) {
