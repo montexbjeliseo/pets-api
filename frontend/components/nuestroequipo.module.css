@@ -1,0 +1,25 @@
+.contenedor{
+    background-color: #f8f3e3;
+    width: 100%;
+}
+
+.header{
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.contenedorheader{
+    text-align: center;
+    font-weight: bold;
+    size: 48px;
+    
+}
+
+.foto{
+    margin: 2em 2em 2em 2em;
+    border-radius: 30;
+}
+

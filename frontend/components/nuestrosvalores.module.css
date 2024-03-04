@@ -1,0 +1,43 @@
+.contenedor {
+   display: flex;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 20px;
+}
+.contenedorheader{
+    flex: column;
+    /* padding-bottom: 20px;
+    padding-top: 20px; */
+    /* margin-left: 60px;
+    margin-rigth: 60px; */
+    /* padding: 20px; */
+}
+.foto {
+    flex: column;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    /* margin-left: 5em;
+    margin-rigth: 5em !important; */
+}
+
+.divheader{ 
+    display: flex; 
+    font-weight: bold;
+   
+}
+
+.header {
+    font-size: 48px;
+}
+
+.titulos{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.parrafo {
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 20px;
+}

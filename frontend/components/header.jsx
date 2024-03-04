@@ -6,7 +6,7 @@ import stlye from "./header.module.css";
 
 export default function Header() {
   return (
-    <header>
+    <header className={stlye.header}>
       <div className={stlye.navBarContainer}>
         <Image src={logo} width="300" height="40" alt="imagen logotipo" />
         <nav className={stlye.navButtonContainer}>
@@ -25,11 +25,12 @@ export default function Header() {
           <Link href="/contactanos" className={stlye.navButton}>
             Contactanos
           </Link>
+          <Link href="/registrarse" className={stlye.registerButton}>Registrarse
+          </Link>
+          <Link href="/ingreso" className={stlye.loginButton}>Ingresar
+          </Link>
         </nav>
-        <div className={stlye.loginContainer}>
-          <button className={stlye.registerButton}>Registrarse</button>
-          <button className={stlye.loginButton}>Ingresar</button>
-        </div>
+
       </div>
     </header>
   );
