@@ -19,4 +19,6 @@ public interface IPetService {
     public void savePets(List<Pet> pets);
 
     List<String> getCities();
+
+    List<String> getSpecies();
 }

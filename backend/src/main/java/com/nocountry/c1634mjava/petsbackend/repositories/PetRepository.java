@@ -31,4 +31,8 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     @Query("SELECT DISTINCT p.city FROM Pet p")
     List<String> findDistinctCity();
+
+
+    @Query("SELECT DISTINCT p.species FROM Pet p")
+    List<String> findDistinctSpecies();
 }
