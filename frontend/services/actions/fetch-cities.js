@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "@/constants";
 
 export const fetchPetsCities = async () => {
-    const response = await fetch(`${API_BASE_URL}/api/pets/cities`);
+    const response = await fetch(`${API_BASE_URL}/pets/cities`);
     
     if (response.status !== 200) {
         return null;
