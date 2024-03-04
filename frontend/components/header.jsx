@@ -4,6 +4,10 @@ import Link from "next/link";
 import logo from "./../public/images/Group 3.png";
 import stlye from "./header.module.css";
 
+import dynamic from "next/dynamic";
+
+const BotonesSesionDinamic = dynamic(() => import('./BotonesSesion'), { ssr: false });
+
 export default function Header() {
   return (
     <header className={stlye.header}>
@@ -15,9 +19,8 @@ export default function Header() {
           <Link href="/adopcion" className={stlye.navButton}>Adoptame</Link>
           <Link href="/contactanos" className={stlye.navButton}>Contactanos</Link>
         </nav>
-        <nav>
-          <Link href="/registrarse" className={stlye.registerButton}>Registrarse</Link>
-          <Link href="/ingreso" className={stlye.loginButton}>Ingresar</Link>
+        <nav className={stlye.sessionButtonsContainer}>
+          <BotonesSesionDinamic />
         </nav>
       </div>
     </header>
