@@ -1,15 +1,37 @@
 'use client';
 
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import style from "./filters.module.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { fetchPetsCities } from "@/services/actions/fetch-cities";
+import { fetchPetsSpecies } from "@/services/actions/fetch-species";
 
 const Filters = () => {
 
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const [cities, setCities ] = useState([]);
+  const [species, setSpecies ] = useState([]);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      const data = await fetchPetsCities();
+      setCities(data ?? []);
+    }
+
+    fetchCities();
+
+    const fetchSpecies = async () => {
+      const data = await fetchPetsSpecies();
+      setSpecies(data ?? []);
+    }
+
+    fetchSpecies();
+
+  }, []);
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -45,8 +67,9 @@ const Filters = () => {
         onChange={handleSpeciesFilterChange}
         defaultValue={searchParams.get("species")}>
           <option value="">Cualquiera</option>
-          <option value="perro">Perro</option>
-          <option value="gato">Gato</option>
+          {species.map((specie) => (
+            <option key={specie} value={specie} className={style.capitalize}>{specie}</option>
+          ))}
         </select>
       </div>
       <div>
@@ -88,10 +111,9 @@ const Filters = () => {
         onChange={handleCityFilterChange}
         defaultValue={searchParams.get("city")}>
           <option value="">Cualquiera</option>
-          <option value="rosario">Rosario</option>
-          <option value="mendoza">Mendoza</option>
-          <option value="buenos_aires">Buenos Aires</option>
-          <option value="resistencia">Resistencia</option>
+          {cities.map((city) => (
+            <option key={city} value={city} className={style.capitalize}>{city}</option>
+          ))}
         </select>
       </div>
     </div>
