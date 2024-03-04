@@ -1,0 +1,179 @@
+.contenedor{
+    margin: 0 auto;
+    max-width: 1312px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 60px;
+}
+.inputs {
+    max-width: calc(428px * 2 + 20px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.formulario {
+    max-width: 424px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.emailInputContainer {
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 428px;
+}
+
+.emailInput {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.emailInput::placeholder {
+    color: red;
+}
+
+.customLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.foto {
+    max-width: 848px;
+    width: 100%;
+}
+
+.ingresar{
+ font-weight: bold;
+ font-size: 32px
+}
+.mensaje{
+font-weight: bold;
+font-size: 16px;
+}
+
+.parrafo{
+font-weight: bold;
+font-size: 16px;
+}
+
+.label {
+    border: 1px solid #DADADA; /* Define el borde con un grosor de 1px y un color sólido negro */
+    padding: 5px; /* Agrega un espacio interno alrededor del texto del label para que el borde no esté pegado al texto */
+    display: inline-block; 
+    width: 428px;
+    height: 50px;
+    color: red;
+    border-radius: 4px;
+
+}
+
+.boton {
+    border: 2px solid red;
+    padding: 5px; /* Agrega un espacio interno alrededor del texto del label para que el borde no esté pegado al texto */
+    display: inline-block; 
+    width: 23px;
+    height: 23px;
+
+}
+
+.botonrojo{
+    background-color: red;
+    width: 428px;
+    height: 48px;
+    border-radius: 8px;
+    color: white;
+
+}
+
+
+
+
+
+
+
+  .ingresarred {
+    border: 1px solid #DADADA; /* Define el borde con un grosor de 1px y un color sólido negro */
+    padding: 5px; /* Agrega un espacio interno alrededor del texto del label para que el borde no esté pegado al texto */
+    display: block;
+    max-width: 428px;
+    max-height: 50px;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+
+}
+.rojo {
+    color: red;
+    size: 16px;
+}
+
+.registrocuenta {
+    padding-left: 50px;
+}
+.foto {
+    
+   flex-grow: 2;
+}
+.mensajeInputContainer {
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mensajeInput {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.mensajeInput::placeholder {
+    color: red;
+}
+
+
+
+.inputsmensaje{
+    max-width: 868px;
+    
+    max-height: 311px;
+}
+
+.cajainformacion{
+    
+    background-color: red;
+    max-width: 424px;
+    max-height: 263px;
+    border-radius: 8px;
+}
+
+.informacion,
+.text {
+    
+    color: white;
+}
+
+.mapa {
+    max-width: 424px;
+    max-height: 318px;
+    border-radius: 8px;
+
+}
+
