@@ -4,7 +4,7 @@ import { LabeledInput } from "@/components/LabeledInputs";
 import { ReduxProvider } from "@/providers/redux-provider";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import style from "./publicar.module.css";
 import { Montserrat } from "next/font/google";
@@ -13,6 +13,10 @@ import { PET_SIZES } from "@/constants";
 import { LabeledRadio } from "@/components/LabeledRadio";
 import { LabeledTextarea } from "@/components/LabeledTextarea";
 import { ImageInput } from "@/components/ImageInput";
+import { MessageAlert } from "@/components/MessageAlert";
+import { publishPet } from "@/services/actions/publish-pet";
+import { fetchUserProfile } from "@/services/actions/fetch-user-profile";
+import { setToken } from "@/slices/authSlice";
 
 const montserrat = Montserrat({
     weight: ['600'],
@@ -22,18 +26,61 @@ const montserrat = Montserrat({
 
 export const Page = () => {
 
+    const [error, setError] = useState(null);
+
+    const [success, setSuccess] = useState(false);
+
     const [image, setImage] = useState(null);
 
     const router = useRouter();
 
     const token = useSelector((state) => state.auth.token);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
 
-    }, []);
+        const validateProfile = async () => {
+            const response = await fetchUserProfile(token);
+
+            if (!response.ok) {
+                dispatch(setToken(null));
+            }
+        }
+
+        if (token) {
+            validateProfile();
+        }
+
+        if(!token) {
+            router.push("/ingreso", { next: { pathname: "/publicar" } });
+        }
+    }, [token]);
 
     const handleUploadImage = (url) => {
         setImage(url);
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (!image) {
+            setError("Debes subir una imagen");
+            return;
+        }
+
+        const formData = new FormData(event.target);
+
+        const payload = Object.fromEntries(formData);
+
+        const response = await publishPet(token, payload, image);
+
+        if (response.ok) {
+            setSuccess(true);
+        } else {
+            const data = await response.json();
+            setError("Error al publicar la mascota");
+        }
     }
 
     return (
@@ -42,7 +89,7 @@ export const Page = () => {
             <p className={style.subtitle}>Asegúrate de rellenar todos los campos para que la conozcan mejor</p>
 
             <div className={style.container}>
-                <form className={style.form}>
+                <form className={style.form} onSubmit={handleSubmit}>
                     <LabeledInput
                         label="Nombre"
                         name="name"
@@ -74,7 +121,7 @@ export const Page = () => {
 
                     <LabeledInput
                         label="Edad"
-                        name="breed"
+                        name="age"
                         type="number"
                         placeholder="Ingresa la edad de la mascota en meses"
                         width={"428px"}
@@ -129,8 +176,12 @@ export const Page = () => {
                     <button className={style.button}>Publicar Mascota</button>
                 </form>
 
-                <ImageInput />
+                <ImageInput onUploaded={handleUploadImage} />
             </div>
+
+            {error && <MessageAlert title={"Error"} message={error} handleClose={() => setError(null)} /> }
+            {success && <MessageAlert title={"Éxito"} message="Tu mascota ha sido publicada" handleClose={() => {setSuccess(false); router.push("/");}} /> }
+
         </main>
     )
 }

@@ -1,7 +1,7 @@
 import { handleUpload } from '@vercel/blob/client';
 import { NextResponse } from 'next/server';
 
-export default async function POST(request) {
+export async function POST(request) {
 
     const body = await request.json();
 
@@ -18,7 +18,7 @@ export default async function POST(request) {
                 // Otherwise, you're allowing anonymous uploads.
 
                 return {
-                    allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
+                    allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml', 'image/avif'],
                     tokenPayload: JSON.stringify({
                         // optional, sent to your server on upload completion
                         // you could pass a user id from auth, or a value from clientPayload
@@ -26,19 +26,7 @@ export default async function POST(request) {
                 };
             },
             onUploadCompleted: async ({ blob, tokenPayload }) => {
-                // Get notified of client upload completion
-                // ⚠️ This will not work on `localhost` websites,
-                // Use ngrok or similar to get the full upload flow
-
                 console.log('blob upload completed', blob, tokenPayload);
-
-                try {
-                    // Run any logic after the file upload completed
-                    // const { userId } = JSON.parse(tokenPayload);
-                    // await db.update({ avatar: blob.url, userId });
-                } catch (error) {
-                    throw new Error('Could not update user');
-                }
             },
         });
 

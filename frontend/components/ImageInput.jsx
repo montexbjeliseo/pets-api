@@ -1,24 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./ImageInput.module.css";
 import { upload } from "@vercel/blob/client";
 
 export const ImageInput = ({onUploaded}) => {
 
-    // const inputFileRef = useRef(null);
-
     const [blob, setBlob] = useState(null);
-
-    // const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageChange = async(event) => {
         const file = event.target.files[0];
-        // if (file) {
-        //     const reader = new FileReader();
-        //     reader.onloadend = () => {
-        //         setSelectedImage(reader.result);
-        //     };
-        //     reader.readAsDataURL(file);
-        // }
 
         const newBlob = await upload(file.name, file, {
             access: 'public',
@@ -27,9 +16,13 @@ export const ImageInput = ({onUploaded}) => {
 
         setBlob(newBlob);
 
-        onUploaded(newBlob.url);
-
     };
+
+    useEffect(() => {
+        if (blob) {
+            onUploaded(blob.url);
+        }
+    }, [blob]);
 
     return (
         <div className={style.container}>
