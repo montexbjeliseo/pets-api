@@ -54,6 +54,10 @@ public class SecurityConfig {
                                 Constants.Endpoints.SWAGGER_UI,
                                 Constants.Endpoints.SWAGGER_CONFIG
                         ).permitAll()
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                Constants.Endpoints.AUTH + Constants.Endpoints.USERS
+                        ).hasAuthority(Constants.Roles.ROLE_ADMIN)
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())

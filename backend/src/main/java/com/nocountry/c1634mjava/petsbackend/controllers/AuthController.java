@@ -6,6 +6,7 @@ import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -44,16 +45,43 @@ public class AuthController {
         return userService.loginUser(requestLoginDTO);
     }
 
+
+    @Operation(summary = "Get User Profile", security = @SecurityRequirement(name = "bearerAuth"))
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User retrieved successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad Request")
+    })
     @GetMapping(Constants.Endpoints.PROFILE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseUserProfileDTO getUserProfile() {
         return userService.getUserProfile();
     }
 
+
+    @Operation(summary = "Update User Profile", security = @SecurityRequirement(name = "bearerAuth"))
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad Request")
+    })
     @PatchMapping(Constants.Endpoints.PROFILE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseUserProfileDTO updateProfile(@Valid @RequestBody RequestUpdateUserDTO requestUpdateUserDTO) {
         return userService.updateProfileDTO(requestUpdateUserDTO);
+    }
+
+
+    @Operation(summary = "Get all users", security = @SecurityRequirement(name = "bearerAuth"))
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Users retrieved successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad Request")
+    })
+    @GetMapping(Constants.Endpoints.USERS)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseGetAllUsersDTO getAllUsers(
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "10") int size
+    ) {
+        return userService.getAllUsers(page, size);
     }
 
 }
