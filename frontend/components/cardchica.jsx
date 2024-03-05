@@ -10,7 +10,7 @@ const Cards = () => {
       {Array.isArray(data) &&
         data.slice(0, 3).map((elem, index) => (
           <Card
-            key={elem.index}
+            key={elem.id}
             imagen={elem.images}
             nombre={elem.name}
             raza={elem.species}
