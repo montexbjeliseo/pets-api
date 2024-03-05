@@ -11,7 +11,7 @@ public interface IPetService {
     public ResponsePetDTO createPet(RequestCreatePetDTO requestCreatePetDTO);
 
     public List<ResponsePetDTO> getAllPets(int offset, int limit);
-    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String max_age, String min_age, String size, String gender);
+    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String max_age, String min_age, String size, String gender, Long user_id);
     public boolean deletePet(Long id);
 
     public ResponsePetDTO updatePet(Long id, RequestUpdatePetDTO requestUpdatePetDTO);

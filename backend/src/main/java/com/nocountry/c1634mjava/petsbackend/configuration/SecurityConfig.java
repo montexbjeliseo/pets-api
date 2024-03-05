@@ -1,6 +1,8 @@
 package com.nocountry.c1634mjava.petsbackend.configuration;
 
 
+import com.nocountry.c1634mjava.petsbackend.exceptions.CustomAccessDeniedHandler;
+import com.nocountry.c1634mjava.petsbackend.exceptions.CustomAuthenticationEntryPoint;
 import com.nocountry.c1634mjava.petsbackend.filters.JwtRequestFilter;
 import com.nocountry.c1634mjava.petsbackend.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
+                .exceptionHandling(handling -> handling
+                        .accessDeniedHandler(new CustomAccessDeniedHandler())
+                        .authenticationEntryPoint(new CustomAuthenticationEntryPoint()))
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers(
                                 HttpMethod.POST,

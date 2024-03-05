@@ -2,13 +2,8 @@
 package com.nocountry.c1634mjava.petsbackend.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
@@ -29,7 +24,7 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     private Pet pet;
     
     @NotBlank

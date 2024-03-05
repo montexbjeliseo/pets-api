@@ -7,7 +7,9 @@ import com.nocountry.c1634mjava.petsbackend.exceptions.NoContentException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ResourceNotFoundException;
 import com.nocountry.c1634mjava.petsbackend.mappers.PetMapper;
 import com.nocountry.c1634mjava.petsbackend.models.Pet;
+import com.nocountry.c1634mjava.petsbackend.models.User;
 import com.nocountry.c1634mjava.petsbackend.repositories.PetRepository;
+import com.nocountry.c1634mjava.petsbackend.repositories.UserRepository;
 import com.nocountry.c1634mjava.petsbackend.services.IPetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,13 +32,21 @@ import java.util.Optional;
 public class PetServiceImpl implements IPetService {
 
     private final PetRepository petRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     private PetMapper petMapper;
 
     @Override
     public ResponsePetDTO createPet(RequestCreatePetDTO requestCreatePetDTO) {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = userRepository.findByEmail(auth.getName());
+
         Pet pet = petMapper.toPet(requestCreatePetDTO);
+
+        pet.setUser(user);
 
         Pet savedPet = petRepository.save(pet);
 
@@ -53,9 +65,9 @@ public class PetServiceImpl implements IPetService {
     }
 
     @Override
-    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String max_age, String min_age, String size, String gender) {
+    public List<ResponsePetDTO> getAllPets(int offset, int limit, String species, String city, String max_age, String min_age, String size, String gender, Long user_id) {
         Pageable pageable = PageRequest.of(offset / limit, limit);
-        Page<Pet> pets = petRepository.filterPets(species, city, max_age, min_age, size, gender, pageable);
+        Page<Pet> pets = petRepository.filterPets(species, city, max_age, min_age, size, gender, user_id, pageable);
 
         if(pets.isEmpty()){
             throw new NoContentException("No pets found");

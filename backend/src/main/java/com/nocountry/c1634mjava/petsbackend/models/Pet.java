@@ -39,7 +39,7 @@ public class Pet {
     @ManyToOne
     private User user;
     
-    @OneToMany
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Form> forms = new HashSet<>();
 
 
