@@ -3,7 +3,7 @@ import style from "./formularioingreso.module.css";
 import Image from "next/image";
 import { KeyIcon } from "@/icons/KeyIcon";
 import Link from "next/link";
-import { FaGoogle } from "react-icons/fa";
+
 
 export default function formularioingreso({handleSubmit}) {
     return (
@@ -41,12 +41,12 @@ export default function formularioingreso({handleSubmit}) {
                     </div>
                     <button className={style.botonrojo}>Ingresar</button>
 
-                    <div className={style.contenedorlinea}>
+                    {/* <div className={style.contenedorlinea}>
                         <span className={style.circulo}>o</span>
-                    </div>
+                    </div> */}
 
-                    <div>
-                        <FaGoogle />
+                    {/* <div>
+                        
                         <label className={style.ingresarred}>Ingresar con Google</label></div>
 
                     <div>
@@ -55,7 +55,7 @@ export default function formularioingreso({handleSubmit}) {
                     <div className={style.registrocuenta}>
                         <p className={style.cuenta}>¿No tienes una cuenta? <Link className={style.rojo} href="/registrarse">Regístrate</Link>
                         </p>
-                    </div>
+                    </div> */}
                 </form>
                 <div className={style.foto}>
                     <Image className={style.logo} src="/images/imageningresar.png" width={873} height={570} alt="logo-perro" />
