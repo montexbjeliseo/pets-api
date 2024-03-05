@@ -8,6 +8,11 @@ import { IoLogoFacebook } from 'react-icons/io';
 
 
 import logo from "./../public/images/Group 3.png";
+import { FbIcon } from "@/icons/FbIcon";
+import { XIcon } from "@/icons/XIcon";
+import { IgIcon } from "@/icons/IgIcon";
+import { EnvelopeFilledIcon } from "@/icons/EnvelopeFilledIcon";
+import { GtIcon } from "@/icons/GtIcon";
 
 export default function Footer() {
   return (
@@ -42,35 +47,36 @@ export default function Footer() {
           {/* Contacto */}
           <div className={style.contenedor}>
             <h6 className={style.h6}>Contacto</h6>
-            <div> <MdLocationOn color="red" />
-              <p> Avenida Siempreviva 742, Bs. As.</p>
-            </div>
-            <div>
-              <AiOutlineMail color="red" />
-              <p> patitasfelices@gmail.com</p>
-            </div>
-            <div>
-              <MdPhone color="red" />
-              <p> (+52)11 6151-3562</p>
+            <div className={style.columna}>
+              <div className="flex items-center"> <MdLocationOn color="red" />
+                <p> Avenida Siempreviva 742, Bs. As.</p>
+              </div>
+              <div className="flex items-center">
+                <AiOutlineMail color="red" />
+                <p> patitasfelices@gmail.com</p>
+              </div>
+              <div className="flex items-center">
+                <MdPhone color="red" />
+                <p> (+52)11 6151-3562</p>
+              </div>
             </div>
           </div>
           {/* Subscribirse */}
           <div className={style.contenedor}>
             <h6 className={style.h6}>Seguinos en nuestras Redes</h6>
 
-            <div>
-              <IoLogoFacebook color="red" />
-
-              <FaTwitter color="red" />
-              <FaInstagram color="red" />
+            <div className="flex items-center justify-center gap-6 py-6 w-full">
+              <FbIcon color="#ff0000" />
+              <XIcon color="#ff0000" />
+              <IgIcon color="#ff0000" />
             </div>
             <div>
-              <div>
-                <input type="text" />
-
-                <FaEnvelope color="red" />
+              <div className={style.subscribe}>
+                <EnvelopeFilledIcon color="#ff0000" />
+                <input className={style.subscribeInput} name="email" placeholder="Ingrese su email" type="text" />
+                <button className={style.subscribeButton}>Suscribirse <GtIcon color={"#ffffff"} /></button>
               </div>
-              <button className={style.boton}>Subscribirse</button>
+
             </div >
 
           </div >
