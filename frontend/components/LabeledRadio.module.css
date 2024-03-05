@@ -1,0 +1,22 @@
+.customLabel {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    gap: 5px;
+}
+
+.container {
+    /* border: 1px solid #DADADA; */
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: red;
+}
+
+.radio {
+    color: red;
+}

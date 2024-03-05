@@ -1,0 +1,25 @@
+.customLabel {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.textInputContainer {
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.textarea::placeholder {
+    color: red;
+}
