@@ -11,4 +11,6 @@ public interface IUserService {
     ResponseUserProfileDTO getUserProfile();
 
     ResponseUserProfileDTO updateProfileDTO(RequestUpdateUserDTO requestUpdateUserDTO);
+
+    ResponseGetAllUsersDTO getAllUsers(int page, int size);
 }

@@ -11,6 +11,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
+import java.util.List;
+import java.util.Set;
+
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
@@ -23,4 +26,6 @@ public interface UserMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     User updateUser(@MappingTarget User user, RequestUpdateUserDTO requestUpdateUserDTO);
+
+    ResponseUserProfileDTO[] toResponseUserProfileDTOs(List<User> users);
 }

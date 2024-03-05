@@ -29,6 +29,8 @@ public class Constants {
 
         public static final String CITIES = "/cities";
         public static final String SPECIES = "/species";
+
+        public static final String USERS = "/users";
     }
 
     public abstract static class Roles {

@@ -76,4 +76,15 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(value = {InvalidPaginationException.class})
+    protected ResponseEntity<ExceptionDTO> handleInvalidPaginationException(InvalidPaginationException ex,
+                                                                           WebRequest request) {
+        ExceptionDTO message = new ExceptionDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
 }

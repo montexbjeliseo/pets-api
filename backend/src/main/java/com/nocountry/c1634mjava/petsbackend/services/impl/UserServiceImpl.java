@@ -1,6 +1,7 @@
 package com.nocountry.c1634mjava.petsbackend.services.impl;
 
 import com.nocountry.c1634mjava.petsbackend.dtos.*;
+import com.nocountry.c1634mjava.petsbackend.exceptions.InvalidPaginationException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.PasswordMismatchException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ResourceNotFoundException;
 import com.nocountry.c1634mjava.petsbackend.exceptions.ValueAlreadyInUseException;
@@ -15,6 +16,9 @@ import com.nocountry.c1634mjava.petsbackend.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -25,6 +29,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -125,5 +130,26 @@ public class UserServiceImpl implements IUserService {
             userRepository.save(user);
         }
 
+    }
+
+    @Override
+    public ResponseGetAllUsersDTO getAllUsers(int page, int size) {
+
+        if(page < 0 || size < 0) {
+            throw new InvalidPaginationException("Page and size must be positive");
+        }
+
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<User> usersPage = userRepository.findAll(pageable);
+
+        return ResponseGetAllUsersDTO.builder()
+                .content(userMapper.toResponseUserProfileDTOs(usersPage.getContent()))
+                .page(page)
+                .size(size)
+                .totalElements(usersPage.getTotalElements())
+                .totalPages((int) usersPage.getTotalElements() / size)
+                .last(usersPage.getTotalElements() % size == 0)
+                .build();
     }
 }
