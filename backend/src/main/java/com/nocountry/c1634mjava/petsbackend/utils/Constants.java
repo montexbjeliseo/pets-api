@@ -31,6 +31,8 @@ public class Constants {
         public static final String SPECIES = "/species";
 
         public static final String USERS = "/users";
+
+        public static final String CONTACTS = BASE + "/contacts";
     }
 
     public abstract static class Roles {

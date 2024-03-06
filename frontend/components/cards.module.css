@@ -1,16 +1,15 @@
-/* .cardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-around;
-} */
-
 .cardsContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 424px);
     gap: 20px;
     max-width: 1312px;
     margin: 0 auto;
     padding: 0 20px;
     margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+    .cardsContainer {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }

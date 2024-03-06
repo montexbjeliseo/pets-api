@@ -45,7 +45,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 HttpMethod.POST,
                                 Constants.Endpoints.AUTH_LOGIN,
-                                Constants.Endpoints.AUTH_REGISTER
+                                Constants.Endpoints.AUTH_REGISTER,
+                                Constants.Endpoints.CONTACTS
                         ).permitAll()
                         .requestMatchers(
                                 HttpMethod.GET,
@@ -56,7 +57,8 @@ public class SecurityConfig {
                         ).permitAll()
                         .requestMatchers(
                                 HttpMethod.GET,
-                                Constants.Endpoints.AUTH + Constants.Endpoints.USERS
+                                Constants.Endpoints.AUTH + Constants.Endpoints.USERS,
+                                Constants.Endpoints.CONTACTS
                         ).hasAuthority(Constants.Roles.ROLE_ADMIN)
                         .anyRequest().authenticated()
                 )

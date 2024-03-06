@@ -11,6 +11,7 @@ const Cards = () => {
         data.slice(0, 3).map((elem, index) => (
           <Card
             key={elem.id}
+            id={elem.id}
             imagen={elem.images}
             nombre={elem.name}
             raza={elem.species}

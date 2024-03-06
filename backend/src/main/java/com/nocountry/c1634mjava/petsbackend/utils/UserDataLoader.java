@@ -32,6 +32,7 @@ public class UserDataLoader implements CommandLineRunner {
         loadRoleData();
 
         if (adminEmail != null && adminPassword != null) {
+            log.info("Checking admin email and password");
             userService.checkAdmin(adminEmail, adminPassword);
         } else {
             log.warn("Admin email or password not set");
