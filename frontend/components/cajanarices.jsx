@@ -7,11 +7,15 @@ export default function cajanarices() {
         <main className={style.cuerpo}>
 
 
-            <div className={style.contenedor}>
-                <p className={style.izquierda}>El proceso</p>
-                <h2 className={style.h2}>Narices frías y corazones contentos</h2>
+            <div className={`flex ${style.contenedor}`}>
+                <div className={"w-1/2"}>
+                    <p className={style.izquierda}>El proceso</p>
+                    <h2 className={style.h2}>Narices frías y corazones contentos</h2>
+                </div>
 
-                <p className={style.derecha}>Al momento de adoptar asumís un acto de responsabilidad y compromiso por lo que es importante que estés capacitado para hacerlo. </p>
+                <div className={"w-1/2 p-12"}>
+                    <p className={style.derecha}>Al momento de adoptar asumís un acto de responsabilidad y compromiso por lo que es importante que estés capacitado para hacerlo. </p>
+                </div>
             </div>
 
 
@@ -24,7 +28,7 @@ export default function cajanarices() {
 
             </div>
             <div className={style.contenedorboton}>
-            <button className={style.contactanosButton}>Contactanos</button>
+                <button className={style.contactanosButton}>Contactanos</button>
             </div>
 
 
