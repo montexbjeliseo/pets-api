@@ -1,0 +1,19 @@
+.main {
+    max-width: 1312px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 60px 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: .8;
+}
+
+.panelContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

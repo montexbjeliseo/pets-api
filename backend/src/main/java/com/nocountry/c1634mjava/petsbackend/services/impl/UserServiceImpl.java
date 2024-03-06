@@ -119,6 +119,8 @@ public class UserServiceImpl implements IUserService {
     public void checkAdmin(String email, String password) {
 
         if(!userRepository.existsByEmail(email)) {
+            log.info("User not found with email: {}", email);
+            log.info("Creating user with email: {}", email);
             User user = new User();
             user.setFirstname("Admin");
             user.setLastname("Admin");

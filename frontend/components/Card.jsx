@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 import style from "./card.module.css";
+import Link from "next/link";
 
-const Card = ({ imagen, nombre, raza, edad, tamano, genero, localidad }) => {
+const Card = ({ id, imagen, nombre, raza, edad, tamano, genero, localidad }) => {
 
   const sizeToText = (size) => {
     switch (size) {
@@ -14,7 +15,7 @@ const Card = ({ imagen, nombre, raza, edad, tamano, genero, localidad }) => {
       case "G":
         return "Grande";
       default:
-        return "Desconocido";
+        return "";
     }
   }
 
@@ -26,7 +27,7 @@ const Card = ({ imagen, nombre, raza, edad, tamano, genero, localidad }) => {
         return "Femenino";
 
       default:
-        return "Desconocido";
+        return "";
     }
   }
 
@@ -55,12 +56,13 @@ const Card = ({ imagen, nombre, raza, edad, tamano, genero, localidad }) => {
         <div className="p-2">
           <p className="font-bold">{raza}</p>
           <p className={style.description}>
-            <span>{ageToText(edad)}</span>
-            <span>{sizeToText(tamano)}</span>
-            <span>{genderToText(genero)}</span>
+            {edad && <span>{ageToText(edad)}</span>}
+            {tamano && <span>{sizeToText(tamano)}</span>}
+            {genero && <span>{genderToText(genero)}</span>}
           </p>
           <p className="font-bold">{localidad}</p>
         </div>
+        <Link href={`/solicitud?pet_id=${id}`} className={style.adoptmeButton}>Adoptame</Link>
       </div>
     </div>
   );
