@@ -1,55 +1,64 @@
 .logo {
-        display: flex;
-        justify-content: center; /* Centrado horizontal */
-        align-items: center; /* Centrado vertical */
-        
-      }
+    display: flex;
+    justify-content: center;
+    /* Centrado horizontal */
+    align-items: center;
+    /* Centrado vertical */
+
+}
 
 .parrafo {
     text-align: center;
     font-size: 15px;
     color: #555;
-}      
+}
 
 .navegacion {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-      }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
 
 .h6 {
     color: red;
     font-weight: bold;
 
 }
-      
+
 .contenedor {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Ajusta el espaciado horizontal entre las columnas */
+    justify-content: space-between;
+    /* Ajusta el espaciado horizontal entre las columnas */
     align-items: flex-start;
     flex-direction: column;
-    margin: 40px 10;
-    
+    /* margin: 40px 10; */
 }
+
 .contenedor.explorar {
-    margin: 40px 30px; /* Aumenta el margen lateral a 30px */
+    margin: 40px 30px;
+    /* Aumenta el margen lateral a 30px */
 }
 
 
 .columna {
     display: flex;
     flex-direction: column;
-    margin: 20px 20;
+    /* margin: 20px 20; */
+    margin-top: 20px;
+    gap: 20px;
 }
+
 .boton {
     color: white;
     background-color: red;
-    border-radius: 20px; /* Controla el radio de los bordes */
-    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    border-radius: 20px;
+    /* Controla el radio de los bordes */
+    padding: 10px 20px;
+    /* Ajusta el relleno según sea necesario */
     cursor: pointer;
-      
+
 }
 
 .wrapper {
@@ -58,6 +67,40 @@
     margin: 0 auto;
 }
 
-.footer{ 
+.footer {
+    padding: 32px 20px;
     background-color: #f8f3e3;
+}
+
+.subscribe {
+    height: 68px;
+    width: 506px;
+    /* width: 100%; */
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.subscribeInput {
+    width: 100%;
+    outline: 0;
+    border: 0;
+}
+
+.subscribeButton {
+    background-color: red;
+    width: 150px;
+    height: 36px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 8px;
 }
