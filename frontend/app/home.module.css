@@ -70,7 +70,9 @@
     font-weight:bold;
     font-weight: 800;
     text-align:center;
-    font-size: 48px;
+    font-size: 38px;
+   
+
 
    
 }
@@ -78,5 +80,7 @@
 .texto1{
     text-align: center;
     font-weight: medium;
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 1em;
+    margin-bottom: 2em;
 }

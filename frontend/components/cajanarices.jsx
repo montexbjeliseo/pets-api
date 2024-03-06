@@ -5,11 +5,17 @@ import Image from "next/image";
 export default function cajanarices() {
     return (
         <div className={style.cuerpo}>
-            <div className={style.contenedor}>
-                <p className={style.izquierda}>El proceso</p>
-                <h2 className={style.h2}>Narices frías y corazones contentos</h2>
 
-                <p className={style.derecha}>Al momento de adoptar asumís un acto de responsabilidad y compromiso por lo que es importante que estés capacitado para hacerlo. </p>
+
+            <div className={`flex ${style.contenedor}`}>
+                <div className={"w-1/2"}>
+                    <p className={style.izquierda}>El proceso</p>
+                    <h2 className={style.h2}>Narices frías y corazones contentos</h2>
+                </div>
+
+                <div className={"w-1/2 p-12"}>
+                    <p className={style.derecha}>Al momento de adoptar asumís un acto de responsabilidad y compromiso por lo que es importante que estés capacitado para hacerlo. </p>
+                </div>
             </div>
             <div className={style.elementos}>
                 <Image

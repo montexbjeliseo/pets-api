@@ -22,10 +22,12 @@
     
     width: 50%;
     height: 50%px;
-    radius: 8px;
+    
     padding: 64px;
     gap: 64px;
     float: right;
+    background: white;
+    box-sizing: border-box;
     
     
 }
@@ -40,4 +42,13 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .foto {
+    background-image: url("./../public/images/daramor.png");
+    width: 100%;
+    height: 100vh; /* Cambiado a 100vh para que el contenedor ocupe toda la altura de la ventana del navegador */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
   }
