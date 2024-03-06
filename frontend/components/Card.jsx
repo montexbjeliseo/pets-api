@@ -15,7 +15,7 @@ const Card = ({ id, imagen, nombre, raza, edad, tamano, genero, localidad }) => 
       case "G":
         return "Grande";
       default:
-        return "Desconocido";
+        return "";
     }
   }
 
@@ -27,7 +27,7 @@ const Card = ({ id, imagen, nombre, raza, edad, tamano, genero, localidad }) => 
         return "Femenino";
 
       default:
-        return "Desconocido";
+        return "";
     }
   }
 
@@ -56,9 +56,9 @@ const Card = ({ id, imagen, nombre, raza, edad, tamano, genero, localidad }) => 
         <div className="p-2">
           <p className="font-bold">{raza}</p>
           <p className={style.description}>
-            <span>{ageToText(edad)}</span>
-            <span>{sizeToText(tamano)}</span>
-            <span>{genderToText(genero)}</span>
+            {edad && <span>{ageToText(edad)}</span>}
+            {tamano && <span>{sizeToText(tamano)}</span>}
+            {genero && <span>{genderToText(genero)}</span>}
           </p>
           <p className="font-bold">{localidad}</p>
         </div>
