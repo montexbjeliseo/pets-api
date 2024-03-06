@@ -18,4 +18,7 @@ public class ResponseUserProfileDTO {
     private String phone;
     private boolean pets;
     private boolean kids;
+
+    private RoleDTO[] roles;
+
 }
