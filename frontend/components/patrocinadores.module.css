@@ -3,6 +3,8 @@
     grid-template-rows: auto auto auto; /* Tres filas de altura automática */
     gap: 10px; /* Espacio entre elementos */
     background-color: black;
+    margin-bottom: 2em;
+    margin-top: 2em;
   }
   
   .descripcion {
@@ -10,7 +12,7 @@
     text-align: center; /* Centrar texto */
   }
   
-  .elementos {
+  .elementos1, .elementos2 {
     display: flex;
     justify-content: space-around;
     grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en el segundo renglón */
@@ -26,4 +28,7 @@
   .titulo {
     color: white;
     text-alig: center;
+  }
+  .elementos2 {
+    margin-bottom: 2em;
   }

@@ -10,54 +10,68 @@ import { UserIcon } from "@/icons/UserIcon";
 export default function formulariocontactanos({ handleSubmit }) {
     return (
         <main>
+
             <div className={style.contenedor}>
                 <p className={style.ingresar}> CONTACTÁNOS</p>
                 <p className={style.mensaje}>Tienes alguna consulta, envíanos un mensaje.</p>
 
+
                 <form className={style.formulario} onSubmit={handleSubmit}>
-                    <div>
+                    <div className="grid grid-cols-10 gap-4">
+
+                        
 
 
-                        <div className={style.inputs}>
+                            <div className={`${style.inputs} col-start-1 col-span-4`}>
+                                <label className={style.customLabel}>
+                                    <span className="font-semibold">Nombre y apellido</span>
+                                    <div className={style.emailInputContainer}>
+                                        <UserIcon color="#ff0000" />
+                                        <input className={style.emailInput} type="nombre y apellido" name="nombre y apellido" placeholder="Ingrese su nombre y apellido" required />
+                                    </div>
+                                </label>
+                            </div>
+                        
+
+
+
+                        <div className={`${style.inputs} col-start-5 col-end-9 gap-4`}>
                             <label className={style.customLabel}>
-                                <span className="font-semibold">Nombre y apellido</span>
+                                <span className="font-semibold">Email</span>
                                 <div className={style.emailInputContainer}>
-                                    <UserIcon color="#ff0000" />
-                                    <input className={style.emailInput} type="nombre y apellido" name="nombre y apellido" placeholder="Ingrese su nombre y apellido" required />
+                                    <AtIcon color="#ff0000" />
+                                    <input className={style.emailInput} type="email" name="email" placeholder="Ingrese su email" required />
                                 </div>
                             </label>
                         </div>
+
+                        <div className={`${style.inputsmensaje} col-start-1 col-end-9`}>
+
+
+                        <div >
+                            <label className={style.customLabel}>
+                                <span className="font-semibold">Mensaje</span>
+                                <div className={style.mensajeInputContainer}>
+                                    <FaEdit color="#ff0000" />
+                                    <textarea className={`${style.emailInput} max-h-311px`} type="text" name="mensaje" placeholder="Escriba su mensaje" required />
+                                </div>
+                            </label>
+                        </div>
+                        </div>
+
+
+
+
+
+                        
                     </div>
-
-
-
-                    <div className={style.inputs}>
-                        <label className={style.customLabel}>
-                            <span className="font-semibold">Email</span>
-                            <div className={style.emailInputContainer}>
-                                <AtIcon color="#ff0000" />
-                                <input className={style.emailInput} type="email" name="email" placeholder="Ingrese su email" required />
-                            </div>
-                        </label>
-                    </div>
-                    <div className={style.inputsmensaje}>
-                        <label className={style.customLabel}>
-                            <span className="font-semibold">Mensaje</span>
-                            <div className={style.emailInputContainer}>
-                                <FaEdit color="#ff0000" />
-                                <textarea className={style.emailInput} type="text" name="mensaje" placeholder="Escriba su mensaje" required />
-                            </div>
-                        </label>
-                    </div>
-
-
-
-
-                    <button className={style.botonrojo}>Enviar mensaje</button>
-
 
                 </form>
-                <div className={` ${style.cajainformacion} p-4 space-y-8`}>
+                <button className={` ${style.botonrojo} p-4 mt-5 mb-5 space-y-8`}>Enviar mensaje</button>
+            
+            
+
+                <div className={` ${style.cajainformacion} p-4 mt-5 mb-5 space-y-8`}>
                     <p className={`{style.informacion} text-white font-semibold text-2xl`}>INFORMACIÓN</p>
                     <p className={style.text}>Avenida Siempreviva 742, Bs. As.</p>
                     <p className={style.text}>patitasfelices@gmail.com</p>
@@ -74,6 +88,6 @@ export default function formulariocontactanos({ handleSubmit }) {
                     </div>
                 </div>
             </div>
-        </main>
+        </main >
     );
 }

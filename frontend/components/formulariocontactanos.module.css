@@ -1,24 +1,24 @@
 .contenedor{
-    margin: 0 auto;
-    max-width: 1312px;
-    width: 100%;
-    padding: 20px;
-    margin-top: 60px;
+    /* margin: 0 auto; */
+    /* max-width: 1312px;
+    width: 100%; */
+    /* padding: 20px;
+    margin-top: 60px; */
 }
 .inputs {
-    max-width: calc(428px * 2 + 20px);
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    /* max-width: calc(428px * 2 + 20px); */
+    /* width: 100%; */
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+    /* gap: 20px; */
 }
 
 .formulario {
-    max-width: 424px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    /* max-width: 424px;
+    width: 100%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* gap: 20px; */
 }
 
 .emailInputContainer {
@@ -26,17 +26,17 @@
     border-radius: 5px;
     padding: 5px;
     outline: none;
-    height: 82px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 428px;
+    /* height: 82px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* gap: 10px;
+    width: 428px; */
 }
 
 .emailInput {
     border: none;
     outline: none;
-    width: 100%;
+    width: 100%; 
 }
 
 .emailInput::placeholder {
@@ -44,8 +44,8 @@
 }
 
 .customLabel {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column;  */
     gap: 5px;
 }
 
@@ -71,9 +71,9 @@ font-size: 16px;
 .label {
     border: 1px solid #DADADA; /* Define el borde con un grosor de 1px y un color sólido negro */
     padding: 5px; /* Agrega un espacio interno alrededor del texto del label para que el borde no esté pegado al texto */
-    display: inline-block; 
-    width: 428px;
-    height: 50px;
+    /* display: inline-block;  */
+    /* width: 428px;
+    height: 50px; */
     color: red;
     border-radius: 4px;
 
@@ -82,7 +82,7 @@ font-size: 16px;
 .boton {
     border: 2px solid red;
     padding: 5px; /* Agrega un espacio interno alrededor del texto del label para que el borde no esté pegado al texto */
-    display: inline-block; 
+    /* display: inline-block;  */
     width: 23px;
     height: 23px;
 
@@ -97,24 +97,6 @@ font-size: 16px;
 
 }
 
-
-
-
-
-
-
-  .ingresarred {
-    border: 1px solid #DADADA; /* Define el borde con un grosor de 1px y un color sólido negro */
-    padding: 5px; /* Agrega un espacio interno alrededor del texto del label para que el borde no esté pegado al texto */
-    display: block;
-    max-width: 428px;
-    max-height: 50px;
-    color: black;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 8px;
-
-}
 .rojo {
     color: red;
     size: 16px;
@@ -150,11 +132,7 @@ font-size: 16px;
 
 
 
-.inputsmensaje{
-    max-width: 868px;
-    
-    max-height: 311px;
-}
+
 
 .cajainformacion{
     
