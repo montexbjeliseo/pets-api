@@ -23,6 +23,7 @@ const Cards = async ({searchParams}) => {
         data.map((elem) => (
           <Card
             key={elem.id}
+            id={elem.id}
             imagen={elem.images}
             nombre={elem.name}
             raza={elem.species}

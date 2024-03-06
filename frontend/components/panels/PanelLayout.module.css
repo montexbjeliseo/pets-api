@@ -1,0 +1,37 @@
+.container {
+    border: 1px solid #DADADA;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+.title {
+    font-size: 16px;
+    color: red;
+    display: flex;
+    gap: 10px;
+    font-weight: 300;
+    position: relative;
+    user-select: none;
+}
+
+.content {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.flip {
+    transform: rotate(180deg);
+}
+
+.chevron {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 import style from "./card.module.css";
+import Link from "next/link";
 
-const Card = ({ imagen, nombre, raza, edad, tamano, genero, localidad }) => {
+const Card = ({ id, imagen, nombre, raza, edad, tamano, genero, localidad }) => {
 
   const sizeToText = (size) => {
     switch (size) {
@@ -61,6 +62,7 @@ const Card = ({ imagen, nombre, raza, edad, tamano, genero, localidad }) => {
           </p>
           <p className="font-bold">{localidad}</p>
         </div>
+        <Link href={`/solicitud?pet_id=${id}`} className={style.adoptmeButton}>Adoptame</Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Max",
         "city": "Resistencia",
         "species": "gato",
@@ -15,6 +16,7 @@
         ]
     },
     {
+        "id": 2,
         "name": "Pelusa",
         "city": "Resistencia",
         "species": "gato",
@@ -30,6 +32,7 @@
         ]
     },
     {
+        "id": 3,
         "name": "Victor",
         "city": "Resistencia",
         "species": "gato",
@@ -45,6 +48,7 @@
         ]
     },
     {
+        "id": 4,
         "name": "Bucky",
         "city": "Resistencia",
         "species": "perro",
@@ -60,6 +64,7 @@
         ]
     },
     {
+        "id": 5,
         "name": "Alma",
         "city": "Resistencia",
         "species": "perro",
@@ -75,6 +80,7 @@
         ]
     },
     {
+        "id": 6,
         "name": "Max",
         "city": "Resistencia",
         "species": "gato",
@@ -90,6 +96,7 @@
         ]
     },
     {
+        "id": 7,
         "name": "Max",
         "city": "Resistencia",
         "species": "gato",
@@ -105,6 +112,7 @@
         ]
     },
     {
+        "id": 8,
         "name": "Max",
         "city": "Resistencia",
         "species": "gato",
@@ -120,6 +128,7 @@
         ]
     },
     {
+        "id": 9,
         "name": "Max",
         "city": "Resistencia",
         "species": "gato",
