@@ -1,34 +1,42 @@
 .contenedor {
-    display: grid;
-    grid-template-rows: auto auto auto; /* Tres filas de altura automática */
-    gap: 10px; /* Espacio entre elementos */
-    background-color: black;
-    margin-bottom: 2em;
-    margin-top: 2em;
-  }
-  
-  .descripcion {
-    grid-row: 1; /* La descripción va en la primera fila */
-    text-align: center; /* Centrar texto */
-  }
-  
-  .elementos1, .elementos2 {
-    display: flex;
-    justify-content: space-around;
-    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en el segundo renglón */
-  }
-  
-  /* Ajusta según sea necesario */
-  .patrocinadorImg {
-    width: 100%;
-    height: auto;
-    max-width: 90px;
-  }
+  display: grid;
+  grid-template-rows: auto auto auto;
+  /* Tres filas de altura automática */
+  gap: 10px;
+  /* Espacio entre elementos */
+  background-color: #363636;
+  margin: 120px auto;
+  padding: 40px;
+}
 
-  .titulo {
-    color: white;
-    text-alig: center;
-  }
-  .elementos2 {
-    margin-bottom: 2em;
-  }
+.descripcion {
+  grid-row: 1;
+  /* La descripción va en la primera fila */
+  text-align: center;
+  /* Centrar texto */
+}
+
+.elementos1,
+.elementos2 {
+  display: flex;
+  justify-content: space-around;
+  grid-template-columns: repeat(4, 1fr);
+  /* Cuatro columnas en el segundo renglón */
+}
+
+/* Ajusta según sea necesario */
+.patrocinadorImg {
+  width: 100%;
+  height: auto;
+  max-width: 90px;
+}
+
+.titulo {
+  color: white;
+  text-align: center;
+  font-size: 36px;
+}
+
+.elementos2 {
+  margin-bottom: 2em;
+}

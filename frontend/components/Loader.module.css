@@ -1,0 +1,37 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    color: red;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.spinner {
+    width: 57.6px;
+    height: 57.6px;
+    animation: spinning 1.5s infinite linear;
+    transform-origin: 24px 24px;
+}
+
+@keyframes spinning {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(80deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

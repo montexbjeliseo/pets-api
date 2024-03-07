@@ -1,3 +1,5 @@
+'use client';
+
 import { LabeledInput } from "@/components/LabeledInputs"
 import { LabeledRadio } from "@/components/LabeledRadio"
 import { ReduxProvider } from "@/providers/redux-provider"
@@ -9,6 +11,14 @@ import { AtIcon } from "@/icons/AtIcon";
 import { PhoneIcon } from "@/icons/PhoneIcon";
 import { AddLocationIcon } from "@/icons/AddLocationIcon";
 import { MyLocationIcon } from "@/icons/MyLocationIcon";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserProfile } from "@/services/actions/fetch-user-profile";
+import { useRouter } from "next/navigation";
+import { setToken } from "@/slices/authSlice";
+import { createPetRequest } from "@/services/actions/create-request-pet";
+import { Loader } from "@/components/Loader";
+import { MessageAlert } from "@/components/MessageAlert";
 
 const montserrat = Montserrat({
     weight: ['600'],
@@ -16,7 +26,82 @@ const montserrat = Montserrat({
     subsets: ["latin"]
 });
 
-export const Page = () => {
+export const Page = ({searchParams}) => {
+
+    const [loading, setLoading] = useState(false);
+
+    const [error, setError] = useState(null);
+
+    const [success, setSuccess] = useState(false);
+
+    const [currentUser, setCurrentUser] = useState(null);
+
+    const token = useSelector((state) => state.auth.token);
+
+    const router = useRouter();
+
+    const dispatch = useDispatch();
+
+    console.log(searchParams);
+
+    const goToLogin = () => {
+        router.push("/ingreso?next=/solicitud?pet_id=" + searchParams.pet_id);
+    }
+
+    useEffect(() => {
+        
+        const validateToken = async () => {
+            const response = await fetchUserProfile(token);
+
+            if (response.ok) {
+                const data = await response.json();
+                setCurrentUser(data);
+            } else {
+                dispatch(setToken(null));
+                goToLogin();
+            }
+        }
+
+        if (token) {
+            validateToken();
+        } else {
+            goToLogin();
+        }
+
+    }, [token]);
+
+    const handleSubmit = async (event) => {
+        
+        event.preventDefault();
+
+        setLoading(true);
+
+        console.log("Intento:", event.target);
+
+        const payload = Object.fromEntries(new FormData(event.target));
+
+        try {
+            const response = await createPetRequest(searchParams.pet_id, payload, token);
+            if (response.ok) {
+                setSuccess(true);
+                setLoading(false);
+            } else {
+                setError("Se ha producido un error");
+                setLoading(false);
+            }
+        } catch (error) {
+            setError("Comprueba tu conexión a internet");
+            setLoading(false);
+        }
+    }
+
+    const done = () => {
+        setSuccess(false);
+        setError(null);
+        setSuccess(false);
+        router.push("/adopcion");
+    }
+
     return (
         <main className={style.main}>
 
@@ -24,7 +109,7 @@ export const Page = () => {
 
             <p className={style.subtitle}>Rellena todos los campos para que podamos revisar tu solicitud de adopción y ponernos en contacto</p>
 
-            <form className={style.form}>
+            <form className={style.form} onSubmit={handleSubmit}>
 
                 <LabeledInput
                     label="Nombre"
@@ -120,18 +205,20 @@ export const Page = () => {
                     ]}
                 />
 
-                <button className={style.button}>Enviar formulario</button>
+                <button type="submit" className={style.button}>Enviar formulario</button>
 
             </form>
-
+            {loading && <Loader />}
+            {error && <MessageAlert message={error} title="Error" handleClose={() => setError(null)} />}
+            {success && <MessageAlert message="Formulario enviado correctamente" title="Exito" handleClose={done} />}
         </main>
     )
 }
 
-export default function () {
+export default function (props) {
     return (
         <ReduxProvider>
-            <Page />
+            <Page {...props} />
         </ReduxProvider>
     )
 }
