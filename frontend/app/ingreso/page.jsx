@@ -7,8 +7,12 @@ import { signIn } from "@/services/actions/sign-in";
 import { ReduxProvider } from "@/providers/redux-provider";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "@/slices/authSlice";
+import { Loader } from "@/components/Loader";
+import { MessageAlert } from "@/components/MessageAlert";
 
-const Page = () => {
+const Page = ({ searchParams }) => {
+
+  const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(null);
 
@@ -18,30 +22,49 @@ const Page = () => {
 
   const router = useRouter();
 
+  const nextPath = searchParams.next;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setLoading(true);
+
     const payload = Object.fromEntries(new FormData(event.target));
 
-    const response = await signIn(payload);
+    try {
+      const response = await signIn(payload);
 
-    if (response.status === 200) {
+      if (response.status === 200) {
 
-      const data = await response.json();
+        const data = await response.json();
 
-      dispatch(setToken(data.token));
+        dispatch(setToken(data.token));
 
-      router.push("/");
-    } else {
-      setError("Credenciales incorrectas");
+
+        if (nextPath) {
+          router.push(nextPath);
+        } else {
+          router.push("/");
+        }
+
+        setLoading(false);
+
+      } else {
+        setError("Credenciales incorrectas");
+        setLoading(false);
+      }
+    } catch (error) {
+      setError('Compruebe su conexion a internet');
+      setLoading(false);
     }
+    
   }
 
   useEffect(() => {
     if (token) {
       router.push("/");
     }
-  }, []);
+  }, [token]);
 
   return (
     <div>
@@ -49,14 +72,16 @@ const Page = () => {
         {error && <p className="text-red-500">{error}</p>}
       </div>
       <Formularioingreso handleSubmit={handleSubmit} />
+      {loading && <Loader />}
+      {error && <MessageAlert message={error} title="Error" handleClose={() => setError(null)} />}
     </div>
   );
 };
 
-export default function () {
+export default function (props) {
   return (
     <ReduxProvider>
-      <Page />
+      <Page {...props} />
     </ReduxProvider>
   );
 }

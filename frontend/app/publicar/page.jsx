@@ -17,6 +17,7 @@ import { MessageAlert } from "@/components/MessageAlert";
 import { publishPet } from "@/services/actions/publish-pet";
 import { fetchUserProfile } from "@/services/actions/fetch-user-profile";
 import { setToken } from "@/slices/authSlice";
+import { Loader } from "@/components/Loader";
 
 const montserrat = Montserrat({
     weight: ['600'],
@@ -27,6 +28,8 @@ const montserrat = Montserrat({
 export const Page = () => {
 
     const [error, setError] = useState(null);
+
+    const [loading, setLoading] = useState(false);
 
     const [success, setSuccess] = useState(false);
 
@@ -53,7 +56,7 @@ export const Page = () => {
         }
 
         if(!token) {
-            router.push("/ingreso", { next: { pathname: "/publicar" } });
+            router.push("/ingreso?next=/publicar");
         }
     }, [token]);
 
@@ -69,6 +72,8 @@ export const Page = () => {
             return;
         }
 
+        setLoading(true);
+
         const formData = new FormData(event.target);
 
         const payload = Object.fromEntries(formData);
@@ -77,9 +82,11 @@ export const Page = () => {
 
         if (response.ok) {
             setSuccess(true);
+            setLoading(false);
         } else {
             const data = await response.json();
             setError("Error al publicar la mascota");
+            setLoading(false);
         }
     }
 
@@ -181,7 +188,7 @@ export const Page = () => {
 
             {error && <MessageAlert title={"Error"} message={error} handleClose={() => setError(null)} /> }
             {success && <MessageAlert title={"Éxito"} message="Tu mascota ha sido publicada" handleClose={() => {setSuccess(false); router.push("/");}} /> }
-
+            {loading && <Loader /> }
         </main>
     )
 }
