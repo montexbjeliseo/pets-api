@@ -14,18 +14,20 @@
 .contenedorheader{
     text-align: center;
     font-weight: bold;
-    size: 48px;
+    size: 38px;
     
 }
 
 .foto{
-    margin: 2em 2em 2em 2em;
+    margin-left: 1px;
     border-radius: 30;
+
 }
 
 .contenedorfotos {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .imageWrapper {
