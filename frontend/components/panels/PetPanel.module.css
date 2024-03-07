@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.element {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(120px, 1fr));
+    gap: 10px;
+}

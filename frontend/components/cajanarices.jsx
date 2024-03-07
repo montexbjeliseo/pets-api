@@ -5,8 +5,6 @@ import Image from "next/image";
 export default function cajanarices() {
     return (
         <div className={style.cuerpo}>
-
-
             <div className={`flex ${style.contenedor}`}>
                 <div className={"w-1/2"}>
                     <p className={style.izquierda}>El proceso</p>

@@ -1,12 +1,23 @@
 import { useEffect, useState } from "react";
 import style from "./ImageInput.module.css";
 import { upload } from "@vercel/blob/client";
+import { MessageAlert } from "./MessageAlert";
+import { Loader } from "./Loader";
 
 export const ImageInput = ({onUploaded}) => {
+
+    const [error, setError] = useState(null);
+
+    const [success, setSuccess] = useState(null);
+
+    const [loading, setLoading] = useState(false);
 
     const [blob, setBlob] = useState(null);
 
     const handleImageChange = async(event) => {
+
+        setLoading(true);
+
         const file = event.target.files[0];
 
         const newBlob = await upload(file.name, file, {
@@ -21,6 +32,8 @@ export const ImageInput = ({onUploaded}) => {
     useEffect(() => {
         if (blob) {
             onUploaded(blob.url);
+            setSuccess(true);
+            setLoading(false);
         }
     }, [blob]);
 
@@ -42,6 +55,9 @@ export const ImageInput = ({onUploaded}) => {
                 </label>
 
             </div>
+            {error && <MessageAlert message={error} title="Error" handleClose={() => setError(null)} />}
+            {success && <MessageAlert message="Imagen subida correctamente" title="Éxito" handleClose={() => setSuccess(null)} />}
+            {loading && <Loader />}
         </div>
     )
 }
