@@ -69,8 +69,8 @@ export const PanelPage = () => {
                     {currentUser.roles[0].name === ROLES.ADMIN && (
                         <UserPanel />
                     )}
-                    <PetPanel />
-                    <RequestPanel />
+                    <PetPanel ownerId={currentUser.id} />
+                    <RequestPanel ownerId={currentUser.id} />
                     <button className="text-red-400 hover:text-red-500" onClick={handleLogout}>Cerrar sesión</button>
                 </div>
             )}

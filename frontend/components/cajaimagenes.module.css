@@ -3,6 +3,7 @@
     grid-template-rows: auto auto auto; /* Tres filas de altura automática */
     gap: 10px; /* Espacio entre elementos */
     background-color: white;
+    margin-bottom: 100px;
   }
   
   .descripcion {

@@ -19,7 +19,7 @@ const PetPanelElement = ({ name, age, gender, breed, city, image, ...props }) =>
     )
 }
 
-export const PetPanel = () => {
+export const PetPanel = ({ownerId}) => {
 
     const [loading, setLoading] = useState(true);
 
@@ -32,7 +32,7 @@ export const PetPanel = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetchPets({offset: 0, limit: 50});
+                const response = await fetchPets({offset: 0, limit: 50, user_id: ownerId});
                 if (response) {
                     setData(response);
                     setLoading(false);
@@ -52,7 +52,10 @@ export const PetPanel = () => {
         <div>
             <h2>Panel de mascotas</h2>
             <PanelLayout title="Panel de mascotas" icon={<PetIcon color="#ff0000" />}>
-                {data && (
+                
+                {Array.isArray(data) && data.length === 0 && <div>No hay mascotas</div>}
+                
+                {data && Array.isArray(data) && data.length > 0 && (
                     <div className={style.container}>
                         {data.map((pet) => <PetPanelElement key={pet.id} {...pet} />)}
                     </div>

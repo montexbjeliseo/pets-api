@@ -7,10 +7,13 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { signUp } from "@/services/actions/sign-up";
 import { MessageAlert } from "@/components/MessageAlert";
+import { Loader } from "@/components/Loader";
 
 const Page = () => {
 
   const [success, setSuccess] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(null);
 
@@ -27,6 +30,7 @@ const Page = () => {
   const handleSubmit = async (event) => {
     setError(null);
     setSuccess(false);
+    setLoading(true);
     event.preventDefault();
 
     const payload = Object.fromEntries(new FormData(event.target));
@@ -36,12 +40,15 @@ const Page = () => {
 
       if (response.ok || response.status == 201) {
         setSuccess(true);
+        setLoading(false);
       } else {
         const data = await response.json();
         setError(data.message);
+        setLoading(false);
       }
     } catch (error) {
       setError(error.toString());
+      setLoading(false);
     }
 
   }
@@ -67,6 +74,7 @@ const Page = () => {
           title="Error"
           handleClose={() => setError(null)} />
       )}
+      {loading && <Loader />}
     </div>
   );
 };

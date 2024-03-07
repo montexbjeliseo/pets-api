@@ -1,3 +1,7 @@
+.cuerpo {
+  margin-bottom: 120px;
+}
+
 .derecha {
   display: flex;
   justify-content: flex-end;
@@ -8,10 +12,16 @@
 .contactanosButton {
   background-color: red;
   color: white;
-  padding: 0.6rem;
+  /* padding: 0.6rem;
   border-radius: 0.8rem;
-  margin: 0rem 0.2rem;
+  margin: 0rem 0.2rem; */
+  max-width: 202px;
+  width: 100%;
+  height: 46px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }
 
 .h2 {
