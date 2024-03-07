@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 .emailInput {
     border: none;
     outline: none;
@@ -22,8 +15,9 @@
 }
 
 .foto {
-    max-width: 848px;
     width: 100%;
+    heigth: 100%;
+    
 }
 
 .ingresar{
@@ -77,10 +71,7 @@ font-size: 16px;
 .registrocuenta {
     padding-left: 50px;
 }
-.foto {
-    
-   flex-grow: 2;
-}
+
 .mensajeInputContainer {
     border: 1px solid #DADADA;
     border-radius: 5px;
@@ -108,10 +99,16 @@ font-size: 16px;
 
 .cajainformacion{
     
+    display: flex;
     background-color: red;
     max-width: 424px;
     max-height: 263px;
     border-radius: 8px;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 } 
 
 .informacion,
@@ -121,22 +118,21 @@ font-size: 16px;
 }
 
 .mapa {
-    max-width: 424px;
-    max-height: 318px;
-    border-radius: 8px;
-
+    width: 424px;
+    height: 318px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 
 .main {
-    max-width: 1312px;
+    max-width: 1352px;
     margin: 0 auto;
     width: 100%;
     padding: 0 20px;
     margin-top: 60px;
     margin-bottom: 60px;
 }
-
 .title {
     font-size: 32px;
     font-weight: 600;
@@ -147,15 +143,17 @@ font-size: 16px;
 .container {
     display: flex;
     width: 100%;
-    justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1312px;
+
 }
 
 .form {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    max-width: calc(428px * 2 + 20px);
+    max-width: calc(424px * 2 + 20px);
     width: 100%;
 }
 
@@ -184,7 +182,15 @@ font-size: 16px;
     margin-bottom: 20px;
 }
 
-.mapa{
-    max-width: 424px;
-    max-height: 318px;
-}
+
+.columna2 {
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 424px;
+        width: 100%;
+        height: 100%;
+    }
+
