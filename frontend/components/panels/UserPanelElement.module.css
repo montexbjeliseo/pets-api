@@ -1,0 +1,22 @@
+.container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(8, minmax(120px, 1fr));
+}
+
+.text {
+    opacity: .9;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.redButton {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+}

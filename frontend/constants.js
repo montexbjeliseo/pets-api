@@ -8,3 +8,8 @@ export const PET_SIZES = [
     { value: "M", text: "Mediano" },
     { value: "G", text: "Grande" }
 ];
+
+export const ROLES = {
+    ADMIN: "ROLE_ADMIN",
+    USER: "ROLE_USER"
+}
