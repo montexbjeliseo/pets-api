@@ -17,3 +17,4 @@
 <p>Jesica Machetti - Frontend</p>
 <p>Gastón Stinson - Frontend</p>
 <p>Marcelo Sosa - QA Tester</p>
+<p>Amarilys Baptista - Team Leader</p>
